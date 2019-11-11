@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/popup_background"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/txtAddAProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="Add a Product"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Category"
+        android:textSize="8dp" />
+
+    <Spinner
+        android:id="@+id/categoryDropdown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:entries="@array/categories"
+        android:spinnerMode="dropdown" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="32dp"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/txtType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Type"
+        android:textSize="8dp" />
+
+    <Spinner
+        android:id="@+id/typeDropdown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/lampTypes" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="32dp"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/txtProductId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Product ID"
+        android:textSize="8dp" />
+
+    <EditText
+        android:id="@+id/etProductId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:ems="10"
+        android:hint="Assign ID "
+        android:inputType="textPersonName"
+        android:textColor="@android:color/black"
+        android:textSize="16dp" />
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/curved_border"
+        android:text="Add product"
+        android:textColor="@color/colorAccent" />
+
+</LinearLayout>
