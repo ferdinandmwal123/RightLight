@@ -21,7 +21,7 @@ public class AddCustomerFragment extends DialogFragment implements View.OnClickL
         View  rootView =inflater.inflate(R.layout.addcustomerfragment,container,false);
         getDialog().setTitle("Add customer dialog");
 
-        mAddCustomerBtn =(Button) rootView.findViewById(R.id.addCustomerButton);
+        mAddCustomerBtn =(Button) rootView.findViewById(R.id.addCustomerBtn);
         mAddCustomerBtn.setOnClickListener(this);
         return rootView;
     }
