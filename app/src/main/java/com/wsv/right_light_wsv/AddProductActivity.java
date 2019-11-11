@@ -10,22 +10,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 import static android.widget.Toast.LENGTH_LONG;
 
 public class AddProductActivity extends AppCompatActivity implements View.OnClickListener{
 
-    @BindView(R.id.btnAdd)
-    Button addProductButton;
-    @BindView(R.id.etProductId)
-    EditText productID;
-    @BindView(R.id.categoryDropdown)
-    Spinner category;
-    @BindView(R.id.typeDropdown)
-    Spinner type;
+
+    private Button addProductButton;
+    private EditText productID;
+    private Spinner category;
+    private Spinner type;
 
     private ArrayAdapter categoryAdapter;
     private ArrayAdapter typeAdapter;
@@ -34,7 +27,10 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_product);
-        ButterKnife.bind(this);
+        type = findViewById(R.id.typeDropdown);
+        category = findViewById(R.id.categoryDropdown);
+        productID = findViewById(R.id.etProductId);
+        addProductButton = findViewById(R.id.btnAdd);
 
         // add items to category dropdown list
         category.setAdapter(categoryAdapter);
