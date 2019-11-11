@@ -23,5 +23,8 @@
     <string name="mark_as_damaged">mark as damaged</string>
     <string name="rent_records">Rent Records</string>
     <string name="rented_lamp_text">This lamp has not been rented yet</string>
+    <string name="_0712345678">number</string>
+    <string name="log_in">Log In</string>
+    <string name="customers">Customers</string>
 
 </resources>
