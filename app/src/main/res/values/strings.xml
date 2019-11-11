@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">Right-Light-WSV</string>
+
+
+    <string-array name="categories">
+        <item>Lamp</item>
+        <item>Mobile Charging</item>
+    </string-array>
+
+    <string-array name="lampTypes">
+        <item>Boom</item>
+        <item>Pico</item>
+        <item>Ciro</item>
+    </string-array>
+
+    <string name="title_activity_products">ProductsActivity</string>
+    <string name="tab_text_1">all products</string>
+    <string name="tab_text_2">available</string>
+    <string name="tab_text_3">rented</string>
+    <string name="product_details">Product Details</string>
+    <string name="boom_lamp_b1">Boom Lamp - B1</string>
+    <string name="available">AVAILABLE</string>
+    <string name="mark_as_damaged">mark as damaged</string>
+    <string name="rent_records">Rent Records</string>
+    <string name="rented_lamp_text">This lamp has not been rented yet</string>
+
 </resources>

@@ -1,8 +1,8 @@
 package com.wsv.right_light_wsv;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class ProductDetailsActivity extends AppCompatActivity {
 
@@ -12,3 +12,4 @@ public class ProductDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product_details);
     }
 }
+
