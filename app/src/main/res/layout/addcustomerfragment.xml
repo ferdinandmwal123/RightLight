@@ -3,4 +3,45 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add a new customer"
+       android:textStyle="bold"
+        android:textColor="@color/colorBlack"
+        android:textSize="24dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"/>
+
+    <EditText
+        android:id="@+id/createCustomerNameField"
+        android:layout_width="match_parent"
+        android:layout_margin="16dp"
+        android:layout_height="wrap_content"
+        android:hint="Customer's name"/>
+    <EditText
+        android:id="@+id/createCustomerPhoneNumberField"
+        android:layout_width="match_parent"
+        android:layout_margin="16dp"
+        android:layout_height="wrap_content"
+        android:hint="Customer's phone number"/>
+    <EditText
+        android:id="@+id/createCustomerIdNoField"
+        android:layout_width="match_parent"
+        android:layout_margin="16dp"
+        android:layout_height="wrap_content"
+        android:hint="Customer's ID No."/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addCustomerButton"
+        android:textSize="16dp"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorOrange"
+        android:layout_margin="20dp"
+        android:padding="8dp"
+        android:text="ADD CUSTOMER"/>
+
+
 </LinearLayout>
