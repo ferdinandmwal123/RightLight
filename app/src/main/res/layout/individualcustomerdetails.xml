@@ -179,7 +179,7 @@
             android:background="@color/colorOrange"
             android:layout_margin="20dp"
             android:padding="13dp"
-            android:text="@string/ban_customer"/>
+            android:text="ban_customer"/>
 
     </RelativeLayout>
 
