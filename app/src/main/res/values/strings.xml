@@ -26,5 +26,6 @@
     <string name="_0712345678">number</string>
     <string name="log_in">Log In</string>
     <string name="customers">Customers</string>
+    <string name="ban_customer">ban customer</string>
 
 </resources>
