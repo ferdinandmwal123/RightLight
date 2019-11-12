@@ -13,21 +13,19 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        Thread background = new Thread(){
-            public void run(){
-                try {
-                    sleep(5 * 1000);
-
-                    Intent i = new Intent(getBaseContext(),HomeActivity.class);
-                    startActivity(i);
-
-                    finish();
-
-                } catch (Exception e){
-                    Toast.makeText(SplashScreenActivity.this,"Uknown error",Toast.LENGTH_LONG).show();
-
-                }
-            }
-        };
+       Thread rest = new Thread(){
+           @Override
+           public void run() {
+               try {
+                   sleep(3000);
+                   Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                   startActivity(intent);
+                   finish();
+               } catch (InterruptedException e) {
+                   e.printStackTrace();
+               }
+           }
+       };
+       rest.start();
     }
 }
