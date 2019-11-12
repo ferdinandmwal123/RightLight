@@ -2,7 +2,9 @@ package com.wsv.right_light_wsv;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -10,5 +12,20 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+
+       Thread rest = new Thread(){
+           @Override
+           public void run() {
+               try {
+                   sleep(3000);
+                   Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+                   startActivity(intent);
+                   finish();
+               } catch (InterruptedException e) {
+                   e.printStackTrace();
+               }
+           }
+       };
+       rest.start();
     }
 }
