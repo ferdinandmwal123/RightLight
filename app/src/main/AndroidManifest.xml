@@ -9,15 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".IndividualCustomerDetails"
-            android:theme="@style/CustomerListTheme"
-            android:label="One customer"></activity>
+        <activity android:name=".RentActivity"></activity>
+        <activity
+            android:name=".IndividualCustomerDetails"
+            android:label="One customer"
+            android:theme="@style/CustomerListTheme" />
         <activity
             android:name=".CustomersActivity"
             android:label="Customers list"
-            android:theme="@style/CustomerListTheme">
-
-        </activity>
+            android:theme="@style/CustomerListTheme"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
