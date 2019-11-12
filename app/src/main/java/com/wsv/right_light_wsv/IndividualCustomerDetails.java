@@ -11,7 +11,7 @@ public class IndividualCustomerDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_individual_customer_details);
+        setContentView(R.layout.individualcustomerdetails);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
