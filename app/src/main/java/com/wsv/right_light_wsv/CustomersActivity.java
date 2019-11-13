@@ -20,7 +20,7 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
 
     private FloatingActionButton mAddCustomerFloatingBtn;
     ListView mRecyclerView;
-    String [] customerNameList ={"Frank Kimatu","Louis Otieno","Robin Mwaura","Ferdinard Thiog'o","Julia Mwong'ina","Kimatu Franklin"};
+    String [] customerNameList ={"John Doe","Louis Otieno","Robin Mwaura","Ferdinard Thiog'o","Julia Mwong'ina","Kimatu Franklin"};
     ArrayAdapter<String> adapter;
 
     @Override
