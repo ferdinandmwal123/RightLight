@@ -20,6 +20,8 @@
             android:theme="@style/CustomerListTheme"></activity>
         <activity android:name=".MainActivity">
         </activity>
+        <activity android:name=".ProductsActivity"></activity>
+        <activity android:name=".ProductDetailsActivity"></activity>
         <activity android:name=".HomeActivity"></activity>
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".SplashScreenActivity">

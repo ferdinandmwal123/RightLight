@@ -14,16 +14,18 @@
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Rent out a product"
+            android:textColor="@color/colorBlack"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Category" />
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/spinnerCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -35,10 +37,9 @@
 
 
         <TextView
-            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Product ID" />
 
         <Spinner
             android:id="@+id/productDropdown"
@@ -94,7 +95,9 @@
                 android:id="@+id/btnPickDate"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="pick date" />
+                android:background="@drawable/curved_border"
+                android:text="pick date"
+                android:textColor="@color/colorWhite" />
 
 
         </LinearLayout>
@@ -106,7 +109,7 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <TextView
@@ -124,7 +127,7 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <TextView
@@ -135,8 +138,10 @@
                 <TextView
                     android:id="@+id/txtTotalCost"
                     android:layout_width="520px"
-                    android:layout_height="wrap_content"
-                    android:text="KSH. 60.00" />
+                    android:layout_height="match_parent"
+                    android:text="KSH. 60.00"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -146,7 +151,9 @@
             android:id="@+id/btnRecordDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="record details" />
+            android:background="@drawable/curved_border"
+            android:text="record details"
+            android:textColor="@color/colorWhite" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

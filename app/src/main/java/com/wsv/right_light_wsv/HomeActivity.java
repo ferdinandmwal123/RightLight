@@ -1,14 +1,13 @@
 package com.wsv.right_light_wsv;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import androidx.appcompat.app.AppCompatActivity;
+
+
 
 public class HomeActivity extends AppCompatActivity {
     private Button mProductsBtn;
