@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
     <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/customersIdNoNumber"
-            tools:text ="33615294"
+            android:text="123456"
             android:layout_toRightOf="@+id/customersIdNoText"
             android:textStyle="normal"
             android:textColor="@color/colorOrange"
@@ -60,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/customersPhoneNoNumber"
-            tools:text="0790 800 808"
+            android:text="07123456789"
             android:layout_toRightOf="@+id/customersIdNoText"
             android:textStyle="normal"
             android:textColor="@color/colorOrange"
@@ -98,11 +95,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/customersRentalsNumber"
-            tools:text="8"
+            android:text="8"
             android:layout_toRightOf="@+id/customersIdNoText"
             android:textStyle="normal"
             android:textColor="@color/colorOrange"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="145dp"
             android:layout_below="@+id/customerHistoryHeader"
             android:layout_marginTop="20dp"/>
         <TextView
@@ -119,7 +116,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/customersLateReturnNumber"
-            tools:text="2"
+            android:text="2"
             android:layout_toRightOf="@+id/customersIdNoText"
             android:textStyle="normal"
             android:textColor="@color/colorOrange"
@@ -140,7 +137,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/customersDateDate"
-            tools:text="20-11-2019"
+            android:text="20-11-2019"
             android:layout_toRightOf="@+id/customersIdNoText"
             android:textStyle="normal"
             android:textColor="@color/colorOrange"
@@ -162,13 +159,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/customersStatusStatus"
-            tools:text="Late"
+            android:text="Late"
             android:layout_toRightOf="@+id/customersIdNoText"
             android:textStyle="normal"
             android:textColor="@color/colorOrange"
             android:layout_marginLeft="152dp"
             android:layout_below="@+id/customersDateDate"
             android:layout_marginTop="20dp"/>
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/customersStatusStatus"-->
+<!--        android:text="Testing"-->
+<!--        android:id="@+id/tet_one" />-->
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/customersStatusStatus"-->
+<!--        android:text="Testing Two"-->
+<!--        android:id="@+id/test_two"-->
+<!--        android:layout_marginLeft="100dp"-->
+<!--        android:layout_toRightOf="@id/tet_one"/>-->
 
         <Button
             android:layout_width="match_parent"
@@ -183,6 +196,3 @@
 
     </RelativeLayout>
 
-
-
-</ScrollView>
