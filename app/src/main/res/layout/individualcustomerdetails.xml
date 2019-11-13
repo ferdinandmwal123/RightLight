@@ -14,7 +14,7 @@
             android:id="@+id/customersNameDetails"
             tools:text="John Doe"
             android:textStyle="bold"
-            android:layout_margin="24dp"/>
+            android:layout_margin="2dp"/>
 
 <!--        <ImageButton-->
 <!--            android:layout_width="wrap_content"-->
@@ -173,13 +173,13 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="16dp"
             android:layout_below="@+id/customersStatusStatus"
             android:textColor="@color/colorWhite"
             android:background="@color/colorOrange"
             android:layout_margin="20dp"
-            android:padding="13dp"
-            android:text="ban_customer"/>
+            android:padding="8dp"
+            android:text="ban customer"/>
 
     </RelativeLayout>
 

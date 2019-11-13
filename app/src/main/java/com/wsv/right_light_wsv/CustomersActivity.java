@@ -18,7 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class CustomersActivity extends AppCompatActivity implements View.OnClickListener{
     Button mCustomerBtn;
     private FloatingActionButton mAddCustomerFloatingBtn;
-    ListView mRecycerView;
+    ListView mRecyclerView;
     String [] customerNameList ={"Frank Kimatu","Louis Otieno","Robin Mwaura","Ferdinard Thiog'o","Julia Mwong'ina","Kimatu Franklin"};
     ArrayAdapter<String> adapter;
 
@@ -30,9 +30,10 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
         mCustomerBtn =(Button) findViewById(R.id.buttonIndividualCustomer);
         mAddCustomerFloatingBtn = findViewById(R.id.addCustomerFloatingBtn);
         mAddCustomerFloatingBtn.setOnClickListener(this);
-        mRecycerView =(ListView) findViewById(R.id.customerRecyclerView);
+        mRecyclerView =(ListView) findViewById(R.id.customerRecyclerView);
         adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,customerNameList);
-        mRecycerView.setAdapter(adapter);
+        mRecyclerView.setAdapter(adapter);
+
         mCustomerBtn.setOnClickListener(this);
     }
 
