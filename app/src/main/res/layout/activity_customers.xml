@@ -20,11 +20,6 @@
         android:backgroundTint="@color/colorOrange"
         android:src="@drawable/ic_add_black_24dp"
         app:fabSize="auto"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonIndividualCustomer"
-        android:text="John Doe"
-        android:layout_below="@+id/customerRecyclerView"/>
+
 
 </RelativeLayout>
