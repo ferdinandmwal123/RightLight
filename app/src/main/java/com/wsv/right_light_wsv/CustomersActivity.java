@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -35,6 +36,15 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
         mRecyclerView.setAdapter(adapter);
 
         mCustomerBtn.setOnClickListener(this);
+        mRecyclerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String itemClickedPosition = (String)adapter.getItem(position);
+                Intent intent = new Intent(CustomersActivity.this,IndividualCustomerDetails.class);
+                startActivity(intent);
+
+            }
+        });
     }
 
     @Override
