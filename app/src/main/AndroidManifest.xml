@@ -4,16 +4,19 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/wsvlogo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".IndividualCustomerDetails"
+            android:theme="@style/CustomerListTheme"
+            android:label="John Doe"></activity>
+      <!--Remove hardcoded JohnDoe -->
+
         <activity android:name=".RentActivity"></activity>
-        <activity
-            android:name=".IndividualCustomerDetails"
-            android:label="One customer"
-            android:theme="@style/CustomerListTheme" />
+       
+
         <activity
             android:name=".CustomersActivity"
             android:label="Customers list"
@@ -24,7 +27,8 @@
         <activity android:name=".ProductDetailsActivity"></activity>
         <activity android:name=".HomeActivity"></activity>
         <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".SplashScreenActivity"
+            android:theme="@style/SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
