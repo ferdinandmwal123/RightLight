@@ -5,12 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-<<<<<<< HEAD
-=======
+
 import androidx.appcompat.app.AppCompatActivity;
 
 
->>>>>>> 93df5b1ad4604aa271f18dbe3d66c99465cdf439
+
 
 public class HomeActivity extends AppCompatActivity {
     private Button mProductsBtn;
