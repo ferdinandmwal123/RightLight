@@ -5,21 +5,24 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="150dp"
-        android:layout_height="44dp"
-        android:drawableLeft="@drawable/ic_home_black_24dp"
-        android:text="Home"
-        android:textSize="30dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="32dp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="140dp">
+        android:layout_marginTop="140dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="150dp"
+            android:layout_height="44dp"
+            android:drawableLeft="@drawable/ic_home_black_24dp"
+            android:paddingLeft="16px"
+            android:text="Home"
+            android:textColor="@color/colorBlack"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="32dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,42 +35,46 @@
                 android:id="@+id/rentBtn"
                 android:layout_width="187dp"
                 android:layout_height="180dp"
-                android:background="@color/colorOrange"
+                android:background="@drawable/curved_border"
+                android:text="Rent Out Product"
                 android:textColor="@color/colorWhite"
-                android:text="Rent Out Product" />
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/monthlyReportBtn"
                 android:layout_width="190dp"
                 android:layout_height="180dp"
                 android:layout_marginLeft="12dp"
-                android:background="@color/colorOrange"
+                android:background="@drawable/curved_border"
+                android:text="Monthly Reports"
                 android:textColor="@color/colorWhite"
-                android:text="Monthly Reports"/>
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_margin="10dp"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/productsBtn"
                 android:layout_width="187dp"
                 android:layout_height="180dp"
-                android:background="@color/colorOrange"
+                android:background="@drawable/curved_border"
                 android:text="Products"
-                android:textColor="@color/colorWhite" />
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/customerBtn"
                 android:layout_width="190dp"
                 android:layout_height="180dp"
                 android:layout_marginLeft="12dp"
-                android:background="@color/colorOrange"
+                android:background="@drawable/curved_border"
+                android:text="@string/customers"
                 android:textColor="@color/colorWhite"
-                android:text="@string/customers" />
+                android:textStyle="bold" />
 
         </LinearLayout>
     </LinearLayout>
