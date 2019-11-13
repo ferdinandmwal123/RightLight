@@ -40,12 +40,12 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(new Intent(HomeActivity.this, CustomersActivity.class));
             }
         });
-//        mRentBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(HomeActivity.this,Re));
-//            }
-//        });
+        mRentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this,RentActivity.class));
+            }
+        });
 //        mMonthlyReportButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
