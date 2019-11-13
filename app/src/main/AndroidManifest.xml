@@ -12,14 +12,19 @@
         <activity android:name=".IndividualCustomerDetails"
             android:theme="@style/CustomerListTheme"
             android:label="John Doe"></activity>
+      <!--Remove hardcoded JohnDoe -->
+
+        <activity android:name=".RentActivity"></activity>
+       
+
         <activity
             android:name=".CustomersActivity"
             android:label="Customers list"
-            android:theme="@style/CustomerListTheme">
-
-        </activity>
+            android:theme="@style/CustomerListTheme"></activity>
         <activity android:name=".MainActivity">
         </activity>
+        <activity android:name=".ProductsActivity"></activity>
+        <activity android:name=".ProductDetailsActivity"></activity>
         <activity android:name=".HomeActivity"></activity>
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".SplashScreenActivity"
