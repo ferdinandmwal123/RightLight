@@ -1,5 +1,6 @@
 package com.wsv.right_light_wsv;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,7 +8,18 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapter.CustomerViewHolder> {
+
+    private List<Customer> mCustomers;
+    private Context mContext;
+
+    public CustomerListAdapter(List<Customer> mCustomers, Context mContext) {
+        this.mCustomers = mCustomers;
+        this.mContext = mContext;
+    }
+
     @NonNull
     @Override
     public CustomerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
