@@ -17,7 +17,7 @@ import android.widget.ListView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class CustomersActivity extends AppCompatActivity implements View.OnClickListener{
-    Button mCustomerBtn;
+
     private FloatingActionButton mAddCustomerFloatingBtn;
     ListView mRecyclerView;
     String [] customerNameList ={"Frank Kimatu","Louis Otieno","Robin Mwaura","Ferdinard Thiog'o","Julia Mwong'ina","Kimatu Franklin"};
@@ -28,14 +28,14 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customers);
 
-        mCustomerBtn =(Button) findViewById(R.id.buttonIndividualCustomer);
+
         mAddCustomerFloatingBtn = findViewById(R.id.addCustomerFloatingBtn);
         mAddCustomerFloatingBtn.setOnClickListener(this);
         mRecyclerView =(ListView) findViewById(R.id.customerRecyclerView);
         adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,customerNameList);
         mRecyclerView.setAdapter(adapter);
 
-        mCustomerBtn.setOnClickListener(this);
+
         mRecyclerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -75,9 +75,6 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
             AddCustomerFragment  addCustomerFragment = new AddCustomerFragment();
             addCustomerFragment.show(fragmentManager,"Add a customer fragment");
         }
-        if (v== mCustomerBtn){
-            Intent intent= new Intent(CustomersActivity.this,IndividualCustomerDetails.class);
-            startActivity(intent);
-        }
+
     }
 }
