@@ -34,6 +34,8 @@ public class ProductsActivity extends AppCompatActivity {
         tabs.setupWithViewPager(viewPager);
         FloatingActionButton fab = findViewById(R.id.fab);
 
+        //API
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
