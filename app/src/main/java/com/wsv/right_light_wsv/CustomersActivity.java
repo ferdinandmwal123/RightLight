@@ -3,6 +3,8 @@ package com.wsv.right_light_wsv;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,12 +18,15 @@ import android.widget.ListView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.List;
+
 public class CustomersActivity extends AppCompatActivity implements View.OnClickListener{
 
     private FloatingActionButton mAddCustomerFloatingBtn;
-    ListView mRecyclerView;
-    String [] customerNameList ={"John Doe","Louis Otieno","Robin Mwaura","Ferdinard Thiog'o","Julia Mwong'ina","Kimatu Franklin"};
-    ArrayAdapter<String> adapter;
+    RecyclerView mRecyclerView;
+//    String [] customerNameList ={"John Doe","Louis Otieno","Robin Mwaura","Ferdinard Thiog'o","Julia Mwong'ina","Kimatu Franklin"};
+    public List<Customer> mCustomers;
+    CustomerListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,28 +36,36 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
 
         mAddCustomerFloatingBtn = findViewById(R.id.addCustomerFloatingBtn);
         mAddCustomerFloatingBtn.setOnClickListener(this);
-        mRecyclerView =(ListView) findViewById(R.id.customerRecyclerView);
-        adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,customerNameList);
+
+
+
+        mRecyclerView =(RecyclerView) findViewById(R.id.customerRecyclerView);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setHasFixedSize(true);
+
+
+        adapter = new CustomerListAdapter(mCustomers,CustomersActivity.this);
         mRecyclerView.setAdapter(adapter);
 
 
-        mRecyclerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String itemClickedPosition = (String)adapter.getItem(position);
-                Intent intent = new Intent(CustomersActivity.this,IndividualCustomerDetails.class);
-                startActivity(intent);
-
-            }
-        });
+//        mRecyclerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                String itemClickedPosition = (String)adapter.getItem(position);
+//                Intent intent = new Intent(CustomersActivity.this,IndividualCustomerDetails.class);
+//                startActivity(intent);
+//
+//            }
+//        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         getMenuInflater().inflate(R.menu.customersearchmenu,menu);
-        MenuItem menuItem = menu.findItem(R.id.customerSearch);
-        SearchView searchView =(SearchView) menuItem.getActionView();
-        searchView.setQueryHint("Search customer...");
+
+        final MenuItem searchItem = menu.findItem(R.id.customerSearch);
+        final SearchView  searchView = (SearchView) searchItem.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -61,12 +74,13 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                adapter.getFilter().filter(newText);
-                return true;
+                return false;
             }
         });
         return true;
     }
+
+
 
     @Override
     public void onClick(View v) {
