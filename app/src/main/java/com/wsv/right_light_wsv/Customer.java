@@ -1,7 +1,7 @@
 package com.wsv.right_light_wsv;
 
 public class Customer {
-    public Customer(String customerNames, String customerIdNo, String customerPhoneNumber, String seller_Id, String id) {
+    public Customer(String customerNames, String customerIdNo, String customerPhoneNumber, int seller_Id, int id) {
         this.customerNames = customerNames;
         this.customerIdNo = customerIdNo;
         this.customerPhoneNumber = customerPhoneNumber;
@@ -12,8 +12,8 @@ public class Customer {
     private String customerNames;
     private String customerIdNo;
     private String customerPhoneNumber;
-    private String seller_Id;
-    private String id;
+    private int seller_Id;
+    private int id;
 
     public String getCustomerNames() {
         return customerNames;
@@ -39,19 +39,19 @@ public class Customer {
         this.customerPhoneNumber = customerPhoneNumber;
     }
 
-    public String getSeller_Id() {
+    public int getSeller_Id() {
         return seller_Id;
     }
 
-    public void setSeller_Id(String seller_Id) {
+    public void setSeller_Id(int seller_Id) {
         this.seller_Id = seller_Id;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 }
