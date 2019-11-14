@@ -17,11 +17,12 @@ public class AllProductsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_all_products, container, false);
-        Button details = view.findViewById(R.id.btnDetails);
+        Button details = view.findViewById(R.id.btnRentRecordDetails);
         details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), ProductDetailsActivity.class));
+
 
             }
         });

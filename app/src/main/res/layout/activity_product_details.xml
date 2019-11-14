@@ -66,7 +66,7 @@
             android:paddingRight="16dp">
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/btnRentOut"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
@@ -76,7 +76,7 @@
                 android:textColor="@color/colorAccent" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/btnMarkAsDamaged"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -193,7 +193,7 @@
                     </LinearLayout>
 
                     <Button
-                        android:id="@+id/btnDetails"
+                        android:id="@+id/btnRentRecordDetails"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

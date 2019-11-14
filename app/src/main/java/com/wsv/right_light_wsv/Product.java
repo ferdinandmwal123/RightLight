@@ -1,30 +1,33 @@
 package com.wsv.right_light_wsv;
 
 public class Product {
-    private String id;
     private String category;
     private String product_id;
+    private int seller_id;
     private String type;
     private boolean rented;
     private boolean available;
     private boolean damaged;
 
-    public Product(String category, String product_id, String type) {
+    public Product(String category, String product_id, String type, int seller_id) {
         this.category = category;
         this.product_id = product_id;
         this.type = type;
+        this.rented = false;
+        this.available = true;
+        this.damaged = false;
     }
 
     public Product() {
 
     }
 
-    public String getId() {
-        return id;
+    public int getSeller_id() {
+        return seller_id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setSeller_id(int seller_id) {
+        this.seller_id = seller_id;
     }
 
     public String getCategory() {
