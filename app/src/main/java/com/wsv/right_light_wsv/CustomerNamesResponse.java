@@ -1,9 +1,13 @@
 package com.wsv.right_light_wsv;
 
 
-import android.telecom.Call;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.http.GET;
 
 public interface CustomerNamesResponse {
 
-    Call
+    @GET("customer")
+    Call<List<Customer>> getCustomerNames();
 }
