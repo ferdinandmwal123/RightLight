@@ -58,8 +58,8 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
 
                 Product product = new Product();
 
-                product.setCategory(String.valueOf(category.getSelectedItem()));
-                product.setType(String.valueOf(type.getSelectedItem()));
+                product.setProduct_category(String.valueOf(category.getSelectedItem()));
+                product.setProduct_type(String.valueOf(type.getSelectedItem()));
                 product.setProduct_id(String.valueOf(productID.getText()));
                 product.setAvailable(true);
                 product.setRented(false);

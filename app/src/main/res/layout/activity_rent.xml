@@ -6,6 +6,7 @@
     tools:context=".RentActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -34,7 +35,8 @@
         <Spinner
             android:id="@+id/spinnerCategory"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:entries="@array/categories" />
 
         <View
             android:layout_width="match_parent"
@@ -48,55 +50,58 @@
             android:layout_height="wrap_content"
             android:text="Product ID" />
 
-        <Spinner
-            android:id="@+id/productDropdown"
+        <EditText
+            android:id="@+id/etProducts"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
-            android:background="@android:color/darker_gray" />
+            android:ems="10"
+            android:inputType="textPersonName" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="24dp"
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingRight="8dp">
 
                 <TextView
-                    android:layout_width="520px"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Customer" />
 
-                <Spinner
-                    android:id="@+id/customerDropdown"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@android:color/darker_gray" />
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/etCustomerName"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPersonName" />
+
+                    <Button
+                        android:id="@+id/btnAddCustomer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:background="@drawable/curved_border"
+                        android:text="new customer"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="12dp" />
+                </LinearLayout>
 
 
             </LinearLayout>
-
-            <Button
-                android:id="@+id/btnAddCustomer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/curved_border"
-                android:text="new customer"
-                android:textColor="@color/colorWhite" />
 
 
         </LinearLayout>
@@ -108,36 +113,46 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingRight="8dp">
 
                 <TextView
-                    android:layout_width="520px"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Return Date" />
 
-                <EditText
-                    android:id="@+id/etReturnDate"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="date" />
+
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/etReturnDate"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPersonName" />
+
+                    <Button
+                        android:id="@+id/btnPickDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:background="@drawable/curved_border"
+                        android:text="pick date"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/btnPickDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/curved_border"
-                android:text="pick date"
-                android:layout_gravity="center"
-                android:textColor="@color/colorWhite" />
-
-
 
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -148,8 +163,8 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:paddingRight="8dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingRight="8dp">
 
                 <TextView
                     android:layout_width="520px"
@@ -158,29 +173,30 @@
 
                 <EditText
                     android:id="@+id/etCost"
-                    android:layout_width="match_parent"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:inputType="number" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Total Cost" />
 
                 <TextView
                     android:id="@+id/txtTotalCost"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="KSH. 60.00"
+                    android:text="60.00"
                     android:textColor="@color/colorBlack"
-                    android:textSize="24sp"
+                    android:textSize="24dp"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -192,6 +208,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+
             android:background="@drawable/curved_border"
             android:text="record details"
             android:textColor="@color/colorWhite" />
