@@ -55,7 +55,7 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
 
         public void bindCustomer(Customer customer){
 
-            customerNameTextView.setText("Name "+customer.getCustomerNames());
+            customerNameTextView.setText(customer.getCustomerNames());
         }
 
 
