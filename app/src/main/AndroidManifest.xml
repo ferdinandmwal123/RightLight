@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wsv.right_light_wsv">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/wsvlogo"
@@ -10,25 +12,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".IndividualCustomerDetails"
-            android:theme="@style/CustomerListTheme"
-            android:label="John Doe"></activity>
-      <!--Remove hardcoded JohnDoe -->
-
-        <activity android:name=".RentActivity"></activity>
-       
-
+        <activity android:name=".CalendarActivity"></activity>
+        <activity
+            android:name=".IndividualCustomerDetails"
+            android:label="John Doe"
+            android:theme="@style/CustomerListTheme" /> <!-- Remove hardcoded JohnDoe -->
+        <activity android:name=".RentActivity" />
         <activity
             android:name=".CustomersActivity"
             android:label="Customers list"
-            android:theme="@style/CustomerListTheme"></activity>
-        <activity android:name=".MainActivity">
-        </activity>
-        <activity android:name=".ProductsActivity"></activity>
-        <activity android:name=".ProductDetailsActivity"></activity>
-        <activity android:name=".HomeActivity"></activity>
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".SplashScreenActivity"
+            android:theme="@style/CustomerListTheme" />
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".ProductsActivity" />
+        <activity android:name=".ProductDetailsActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity
+            android:name=".SplashScreenActivity"
             android:theme="@style/SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,7 +36,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".VerifyActivity"></activity>
+        <activity android:name=".VerifyActivity" />
     </application>
 
 </manifest>

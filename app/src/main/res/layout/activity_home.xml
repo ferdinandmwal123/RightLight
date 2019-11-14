@@ -8,7 +8,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="32dp"
+        android:padding="10dp"
         android:orientation="vertical">
 
         <TextView
@@ -21,15 +22,21 @@
             android:textColor="@color/colorBlack"
             android:textSize="30dp"
             android:textStyle="bold"
+
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="32dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginBottom="32dp"
+            android:background="@color/colorPrimary" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
+            android:layout_marginBottom="10dp">
 
             <Button
                 android:id="@+id/rentBtn"
@@ -54,7 +61,6 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:orientation="horizontal">
 
             <Button

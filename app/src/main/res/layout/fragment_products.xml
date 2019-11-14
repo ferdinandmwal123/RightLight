@@ -39,7 +39,7 @@
                 android:textSize="18sp" />
 
             <Button
-                android:id="@+id/btnDetails"
+                android:id="@+id/btnRentRecordDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"

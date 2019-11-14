@@ -1,38 +1,34 @@
 package com.wsv.right_light_wsv;
 
 public class Product {
-    private String id;
-    private String category;
+    private String product_category;
     private String product_id;
-    private String type;
+    private int seller;
+    private String product_type;
     private boolean rented;
     private boolean available;
     private boolean damaged;
 
-    public Product(String category, String product_id, String type) {
-        this.category = category;
+    public Product(String product_category, String product_id, String product_type, int seller) {
+        this.product_category = product_category;
         this.product_id = product_id;
-        this.type = type;
+        this.product_type = product_type;
+        this.rented = false;
+        this.available = true;
+        this.damaged = false;
+        this.seller = seller;
     }
 
     public Product() {
 
     }
 
-    public String getId() {
-        return id;
+    public String getProduct_category() {
+        return product_category;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
+    public void setProduct_category(String product_category) {
+        this.product_category = product_category;
     }
 
     public String getProduct_id() {
@@ -43,12 +39,20 @@ public class Product {
         this.product_id = product_id;
     }
 
-    public String getType() {
-        return type;
+    public int getSeller() {
+        return seller;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setSeller(int seller) {
+        this.seller = seller;
+    }
+
+    public String getProduct_type() {
+        return product_type;
+    }
+
+    public void setProduct_type(String product_type) {
+        this.product_type = product_type;
     }
 
     public boolean isRented() {
