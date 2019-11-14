@@ -33,12 +33,7 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
 
     @Override
     public void onBindViewHolder(@NonNull CustomerViewHolder holder, int position) {
-
-        Customer customer = mCustomers.get(position);
-
-        if (customer != null) {
-            holder.customerNameTextView.setText(customer.getCustomerNames());
-        }
+        holder.bindCustomer(mCustomers.get(position));
     }
 
     @Override
@@ -49,11 +44,20 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
     public class CustomerViewHolder extends RecyclerView.ViewHolder {
 
         private TextView customerNameTextView;
+
+
+
         public CustomerViewHolder(@NonNull View itemView) {
             super(itemView);
 
-
             customerNameTextView =itemView.findViewById(R.id.customerNameInList);
         }
+
+        public void bindCustomer(Customer customer){
+
+            customerNameTextView.setText("Name "+customer.getCustomerNames());
+        }
+
+
     }
 }
