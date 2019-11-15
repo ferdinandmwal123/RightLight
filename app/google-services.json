@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "946233855152",
+    "firebase_url": "https://right-light-wsv.firebaseio.com",
+    "project_id": "right-light-wsv",
+    "storage_bucket": "right-light-wsv.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:946233855152:android:5cf5557707ea4cfd19bf75",
+        "android_client_info": {
+          "package_name": "com.wsv.right_light_wsv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "946233855152-gaoukvpad6t81dttkeeaj4b592rpbt8t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wsv.right_light_wsv",
+            "certificate_hash": "51fbf8385408383db9f08e32af0f46317170ba5b"
+          }
+        },
+        {
+          "client_id": "946233855152-f7pt3g3agb0f28nv0ul3fhsirke7eidr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyR2jHXMaiwX0JhZ5ZL2EdYzSfeq0e3d8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "946233855152-f7pt3g3agb0f28nv0ul3fhsirke7eidr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
