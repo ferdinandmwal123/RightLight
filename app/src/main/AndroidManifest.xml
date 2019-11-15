@@ -16,7 +16,7 @@
         <activity android:name=".CalendarActivity" />
         <activity
             android:name=".IndividualCustomerDetails"
-            android:label="John Doe"
+            android:label="Customer details"
             android:theme="@style/CustomerListTheme" /> <!-- Remove hardcoded JohnDoe -->
         <activity android:name=".RentActivity" />
         <activity
