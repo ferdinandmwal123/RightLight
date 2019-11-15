@@ -15,6 +15,7 @@ public class HomeActivity extends AppCompatActivity {
     private Button mProductsBtn;
     private Button mCustomerBtn;
     private Button mRentBtn;
+    private Button mReturnBtn;
     private Button mMonthlyReportButton;
 
     @Override
@@ -23,6 +24,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         mProductsBtn = findViewById(R.id.productsBtn);
+        mReturnBtn = findViewById(R.id.returnBtn);
         mCustomerBtn = findViewById(R.id.customerBtn);
         mRentBtn = findViewById(R.id.rentBtn);
         mMonthlyReportButton = findViewById(R.id.monthlyReportBtn);
@@ -44,6 +46,12 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(HomeActivity.this,RentActivity.class));
+            }
+        });
+        mReturnBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeActivity.this,ReturnActivity.class));
             }
         });
 //        mMonthlyReportButton.setOnClickListener(new View.OnClickListener() {

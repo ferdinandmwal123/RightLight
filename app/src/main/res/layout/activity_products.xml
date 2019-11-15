@@ -18,8 +18,8 @@
             android:background="?attr/colorPrimary"
             android:scrollbarThumbHorizontal="@color/colorPrimaryAccent"
             android:scrollbarTrackHorizontal="@color/colorPrimaryAccent"
-            app:tabIconTint="@android:color/holo_orange_light"
-            app:tabIndicatorColor="@android:color/holo_orange_light"
+            app:tabIconTint="@color/colorWhite"
+            app:tabIndicatorColor="@color/colorWhite"
             app:tabIndicatorHeight="3dp" />
     </com.google.android.material.appbar.AppBarLayout>
 

@@ -15,7 +15,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
 public class ProductsActivity extends AppCompatActivity {
-    private Context mContext;
+
     private PopupWindow mPopupWindow;
 
 
