@@ -14,5 +14,5 @@ public interface CustomerNamesResponse {
     Call<List<Customer>> getCustomerNames();
 
     @POST("customer")
-    Call<List> addCustomer(@Body Customer customer);
+    Call<Customer> addCustomer(@Body Customer customer);
 }
