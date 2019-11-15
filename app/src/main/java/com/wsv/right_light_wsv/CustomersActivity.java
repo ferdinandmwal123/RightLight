@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
@@ -76,8 +77,7 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
 
               if (response.isSuccessful()){
                   mCustomers= response.body();
-                  Log.i("Here",response.body().toString());
-                  Log.i("Ciustomer", mCustomers.toString());
+                  Collections.sort(mCustomers,Customer.SORT_BY_NAME);
 
 
                   mRecyclerView = findViewById(R.id.customerRecyclerView);
