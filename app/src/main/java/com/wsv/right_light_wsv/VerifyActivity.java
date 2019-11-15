@@ -1,3 +1,4 @@
+/*
 package com.wsv.right_light_wsv;
 
 import androidx.annotation.NonNull;
@@ -28,3 +29,4 @@ public class VerifyActivity extends AppCompatActivity {
     }
 
 
+*/

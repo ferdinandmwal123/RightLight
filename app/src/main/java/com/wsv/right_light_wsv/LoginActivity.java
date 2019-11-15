@@ -1,3 +1,4 @@
+/*
 package com.wsv.right_light_wsv;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,3 +17,4 @@ public class LoginActivity extends AppCompatActivity {
 
 
 }
+*/
