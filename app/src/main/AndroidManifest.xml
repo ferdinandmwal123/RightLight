@@ -22,7 +22,16 @@
         <activity
             android:name=".CustomersActivity"
             android:label="Customers list"
-            android:theme="@style/CustomerListTheme" />
+            android:theme="@style/CustomerListTheme" >
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+        </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".ProductsActivity" />
         <activity android:name=".ProductDetailsActivity" />
