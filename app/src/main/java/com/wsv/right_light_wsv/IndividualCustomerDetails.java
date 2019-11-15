@@ -29,6 +29,8 @@ public class IndividualCustomerDetails extends AppCompatActivity {
 
         int startPosition = getIntent().getIntExtra("position",0);
 
+        System.out.println("here is another stupid error in the activity:" + mCustomers);
+
         adapterViewPagerCustomer = new CustomerPageAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,mCustomers);
         mViewPager.setAdapter(adapterViewPagerCustomer);
         mViewPager.setCurrentItem(startPosition);
