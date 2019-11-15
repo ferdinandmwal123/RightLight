@@ -17,6 +17,9 @@ buildscript {
 
 allprojects {
     repositories {
+        maven {
+            url  "http://dl.bintray.com/africastalking/java"
+        }
         google()
         jcenter()
         
