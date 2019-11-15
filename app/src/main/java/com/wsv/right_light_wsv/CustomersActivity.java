@@ -3,6 +3,7 @@ package com.wsv.right_light_wsv;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -82,6 +83,10 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
                   mRecyclerView = findViewById(R.id.customerRecyclerView);
                   mRecyclerView.setLayoutManager(new LinearLayoutManager(CustomersActivity.this));
                   mRecyclerView.setHasFixedSize(true);
+
+                  DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(CustomersActivity.this,DividerItemDecoration.VERTICAL);
+                  dividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.recycler_line_divider));
+                  mRecyclerView.addItemDecoration(dividerItemDecoration);
 
                   runOnUiThread(new Runnable() {
                       public void run() {
