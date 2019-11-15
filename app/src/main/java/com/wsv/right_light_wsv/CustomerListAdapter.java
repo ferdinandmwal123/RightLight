@@ -38,8 +38,20 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CustomerViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CustomerViewHolder holder, final int position) {
         holder.bindCustomer(mCustomers.get(position));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(mContext,IndividualCustomerDetails.class);
+                intent.putExtra("position",position);
+                intent.putExtra("customers", Parcels.wrap(mCustomers));
+                mContext.startActivity(intent);
+
+            }
+        });
+
 //        holder.customerNameTextView.setText(mCustomers.get(position).getName());
     }
 
@@ -48,7 +60,7 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
         return mCustomers.size();
     }
 
-    public class CustomerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class CustomerViewHolder extends RecyclerView.ViewHolder {
 
         private TextView customerNameTextView;
         private Context mContext;
@@ -57,7 +69,6 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
         public CustomerViewHolder(@NonNull View itemView) {
             super(itemView);
             mContext = itemView.getContext();
-            itemView.setOnClickListener(this);
 
             customerNameTextView =itemView.findViewById(R.id.customerNameInList);
         }
@@ -67,15 +78,5 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
             customerNameTextView.setText(customer.getName());
         }
 
-
-        @Override
-        public void onClick(View v) {
-            int itemPosition = getLayoutPosition();
-            Intent intent = new Intent(mContext,IndividualCustomerDetails.class);
-            intent.putExtra("position",itemPosition);
-            intent.putExtra("customera", Parcels.wrap(mCustomers));
-            mContext.startActivity(intent);
-
-        }
     }
 }
