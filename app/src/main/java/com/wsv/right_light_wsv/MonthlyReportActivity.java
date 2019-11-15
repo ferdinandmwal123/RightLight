@@ -1,10 +1,9 @@
 package com.wsv.right_light_wsv;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class MonthlyReport extends AppCompatActivity {
+public class MonthlyReportActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
