@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,16 +16,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.parceler.Parcels;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapter.CustomerViewHolder> {
+public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapter.CustomerViewHolder> implements Filterable {
 
     private List<Customer> mCustomers;
     private Context mContext;
+    private List<Customer> customers;
 
-    public CustomerListAdapter(List<Customer> mCustomers, Context context) {
-        this.mCustomers = mCustomers;
+    public CustomerListAdapter(List<Customer> customers, Context context) {
+        this.mCustomers = customers;
         this.mContext = context;
+        this.customers =customers;
     }
 
     @NonNull
@@ -60,6 +65,8 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
         return mCustomers.size();
     }
 
+
+
     public class CustomerViewHolder extends RecyclerView.ViewHolder {
 
         private TextView customerNameTextView;
@@ -78,5 +85,42 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
             customerNameTextView.setText(customer.getName());
         }
 
+    }
+
+    //search functionality on recyclerview
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+
+                String charString = constraint.toString();
+                if (charString.isEmpty()) {
+                    mCustomers = customers;
+                }else{
+                    List<Customer> filteredCustomers = new ArrayList<>();
+
+                    for (Customer cust : customers) {
+                        if (cust.getName().toLowerCase().contains(charString.toLowerCase())){
+                            filteredCustomers.add(cust);
+                        }
+                    }
+
+                    mCustomers= filteredCustomers;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values =mCustomers;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+
+                mCustomers =(ArrayList<Customer>) results.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 }
