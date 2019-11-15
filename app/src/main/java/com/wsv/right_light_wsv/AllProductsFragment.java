@@ -10,6 +10,12 @@ import android.widget.Button;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class AllProductsFragment extends Fragment {
 
 
@@ -26,6 +32,22 @@ public class AllProductsFragment extends Fragment {
 
             }
         });
+        Button rent = view.findViewById(R.id.btnRent);
+        rent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), RentActivity.class));
+
+
+            }
+        });
+
+        ProductsApi client = ProductClient.getClient();
+
+        Call<ProductsResponse> call = client.getAllProducts();
+
+
+
 
 
         return view;

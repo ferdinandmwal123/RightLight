@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/wsvlogo"
@@ -12,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CalendarActivity"></activity>
+        <activity android:name=".ReturnActivity"/>
+        <activity android:name=".MonthlyReportActivity" />
+        <activity android:name=".CalendarActivity" />
         <activity
             android:name=".IndividualCustomerDetails"
             android:label="John Doe"
@@ -22,7 +23,7 @@
             android:name=".CustomersActivity"
             android:label="Customers list"
             android:theme="@style/CustomerListTheme" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".ProductsActivity" />
         <activity android:name=".ProductDetailsActivity" />
         <activity android:name=".HomeActivity" />
