@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ReturnActivity"></activity>
+        <activity android:name=".MonthlyReport"></activity>
         <activity android:name=".CalendarActivity" />
         <activity
             android:name=".IndividualCustomerDetails"
