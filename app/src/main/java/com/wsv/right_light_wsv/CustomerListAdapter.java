@@ -1,6 +1,7 @@
 package com.wsv.right_light_wsv;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -45,14 +48,16 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
         return mCustomers.size();
     }
 
-    public class CustomerViewHolder extends RecyclerView.ViewHolder {
+    public class CustomerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView customerNameTextView;
-
+        private Context mContext;
 
 
         public CustomerViewHolder(@NonNull View itemView) {
             super(itemView);
+            mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
 
             customerNameTextView =itemView.findViewById(R.id.customerNameInList);
         }
@@ -63,5 +68,14 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
         }
 
 
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext,IndividualCustomerDetails.class);
+            intent.putExtra("position",itemPosition);
+            intent.putExtra("customera", Parcels.wrap(mCustomers));
+            mContext.startActivity(intent);
+
+        }
     }
 }
