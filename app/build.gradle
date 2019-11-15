@@ -53,7 +53,7 @@ dependencies {
 
 
     //africas talking dependency
-    implementation 'com.africastalking:core:3.4.2'
+//    implementation 'com.africastalking:core:3.4.2'
 
 
 
