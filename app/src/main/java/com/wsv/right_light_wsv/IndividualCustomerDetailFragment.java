@@ -23,7 +23,6 @@ import java.util.List;
  */
 public class IndividualCustomerDetailFragment extends Fragment {
 
-    private TextView mCustomerNameDetails;
     private TextView mCustomerIdNoNumber;
     private TextView mCustomerPhoneNoNumber;
 
@@ -63,12 +62,10 @@ public class IndividualCustomerDetailFragment extends Fragment {
         View itemView = inflater.inflate(R.layout.fragment_individual_customer_detail, container, false);
 
 
-        mCustomerNameDetails = itemView.findViewById(R.id.customersNameDetails);
         mCustomerIdNoNumber =itemView.findViewById(R.id.customersIdNoNumber);
         mCustomerPhoneNoNumber = itemView.findViewById(R.id.customersPhoneNoNumber);
 
 
-        mCustomerNameDetails.setText(myCustomer.getName());
         mCustomerPhoneNoNumber.setText(myCustomer.getPhoneNumber());
         mCustomerIdNoNumber.setText(myCustomer.getCustomerId());
         return itemView;

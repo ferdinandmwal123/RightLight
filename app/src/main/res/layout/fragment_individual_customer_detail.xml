@@ -6,13 +6,7 @@
     tools:context=".IndividualCustomerDetailFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/customersNameDetails"
-        tools:text="John Doe"
-        android:textStyle="bold"
-        android:layout_margin="2dp"/>
+
 
 
     <TextView
@@ -22,7 +16,6 @@
         android:text="ID No:"
         android:textStyle="normal"
         android:textColor="@color/colorOrange"
-        android:layout_below="@+id/customersNameDetails"
         android:layout_margin="10dp"/>
     <TextView
         android:layout_width="wrap_content"
@@ -33,7 +26,6 @@
         android:textStyle="normal"
         android:textColor="@color/colorOrange"
         android:layout_marginLeft="100dp"
-        android:layout_below="@+id/customersNameDetails"
         android:layout_marginTop="10dp"/>
 
     <TextView
@@ -69,6 +61,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/customerHistoryHeader"
         android:text="Customer's history"
+        android:textColor="@color/colorBlack"
         android:textStyle="bold"
         android:textSize="24dp"
         android:layout_below="@+id/customersPhoneNumberText"
