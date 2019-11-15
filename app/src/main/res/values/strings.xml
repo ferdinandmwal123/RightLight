@@ -28,4 +28,7 @@
     <string name="customers">Customers</string>
     <string name="ban_customer">ban customer</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
