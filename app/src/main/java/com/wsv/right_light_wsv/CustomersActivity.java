@@ -1,21 +1,18 @@
 package com.wsv.right_light_wsv;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -33,11 +30,12 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
 
     private FloatingActionButton mAddCustomerFloatingBtn;
     RecyclerView mRecyclerView;
-
+    TextView errorTextView, testCustomerName;
+    ProgressBar mProgressBar;
 
     public List<Customer> mCustomers;
-    TextView errorTextView;
     CustomerListAdapter adapter;
+    CustomerNamesResponse customerNamesResponse;
 
 
     @Override
@@ -50,30 +48,62 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
         mAddCustomerFloatingBtn.setOnClickListener(this);
 
         errorTextView = findViewById(R.id.errorTextView);
+        mProgressBar = findViewById(R.id.progress_bar);
+        testCustomerName = findViewById(R.id.testCustomerName);
 
         Retrofit retrofit = new Retrofit.Builder().baseUrl("https://rightlight.herokuapp.com/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        CustomerNamesResponse customerNamesResponse = retrofit.create(CustomerNamesResponse.class);
+        customerNamesResponse = retrofit.create(CustomerNamesResponse.class);
+
+        // addCustomer();//posting method
 
         Call<List<Customer>> call = customerNamesResponse.getCustomerNames();
+
+        Log.i("Here", call.toString());
 
         call.enqueue(new Callback<List<Customer>>() {
             @Override
             public void onResponse(Call<List<Customer>> call, Response<List<Customer>> response) {
 
-              if (response.isSuccessful()){
-                  mCustomers= response.body();
 
-                  mRecyclerView =(RecyclerView) findViewById(R.id.customerRecyclerView);
-                  mRecyclerView.setLayoutManager(new LinearLayoutManager(CustomersActivity.this));
-                  mRecyclerView.setHasFixedSize(true);
+                if (response.isSuccessful()) {
+                    mCustomers = response.body();
+                    Log.i("Here", response.body().toString());
+                    Log.i("Ciustomer", mCustomers.toString());
 
-                  adapter = new CustomerListAdapter(mCustomers,CustomersActivity.this);
-                  mRecyclerView.setAdapter(adapter);
 
-              }
+                    mRecyclerView = findViewById(R.id.customerRecyclerView);
+                    mRecyclerView.setLayoutManager(new LinearLayoutManager(CustomersActivity.this));
+                    mRecyclerView.setHasFixedSize(true);
+
+                    runOnUiThread(new Runnable() {
+                        public void run() {
+                            adapter = new CustomerListAdapter(mCustomers, CustomersActivity.this);
+                            adapter.notifyDataSetChanged();
+                            mRecyclerView.setAdapter(adapter);
+                        }
+                    });
+
+
+                    hideProgressBar();
+                } else {
+                    hideProgressBar();
+                    showFailureMessage();
+                }
+//                if (!response.isSuccessful()){
+//                    testCustomerName.setText("Code :" + response.code());
+//                    return;
+//                }
+//                List<Customer> customers =response.body();
+//
+//                for (Customer  customer : customers) {
+//                     String resultCustomerName ="";
+//                     resultCustomerName += "Name "+ customer.getCustomerNames() + "\n";
+//
+//                     testCustomerName.setText(resultCustomerName);
+//                }
 
             }
 
@@ -98,6 +128,12 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
 //            }
 //        });
     }
+
+//    private void addCustomer() {
+//        Customer customer = new Customer("Name","12345","123456",1);
+//
+//        Call<Customer> call = customerNamesResponse.addCustomer(customer);
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -130,5 +166,14 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
             addCustomerFragment.show(fragmentManager,"Add a customer fragment");
         }
 
+    }
+
+    public void hideProgressBar() {
+        mProgressBar.setVisibility(View.GONE);
+    }
+
+    public void showFailureMessage() {
+        errorTextView.setText("Something wen't wrong.Please check your internet connection");
+        errorTextView.setVisibility(View.VISIBLE);
     }
 }

@@ -1,57 +1,75 @@
+
+
 package com.wsv.right_light_wsv;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Customer {
-    public Customer(String customerNames, String customerIdNo, String customerPhoneNumber, int seller_Id, int id) {
-        this.customerNames = customerNames;
-        this.customerIdNo = customerIdNo;
-        this.customerPhoneNumber = customerPhoneNumber;
-        this.seller_Id = seller_Id;
-        this.id = id;
+
+    @SerializedName("Name")
+    @Expose
+    private String name;
+    @SerializedName("phone_number")
+    @Expose
+    private String phoneNumber;
+    @SerializedName("seller")
+    @Expose
+    private Integer seller;
+    @SerializedName("customer_id")
+    @Expose
+    private String customerId;
+
+    /**
+     * No args constructor for use in serialization
+     */
+    public Customer() {
     }
 
-    private String customerNames;
-    private String customerIdNo;
-    private String customerPhoneNumber;
-    private int seller_Id;
-    private int id;
-
-    public String getCustomerNames() {
-        return customerNames;
+    /**
+     * @param seller
+     * @param phoneNumber
+     * @param name
+     * @param customerId
+     */
+    public Customer(String name, String phoneNumber, Integer seller, String customerId) {
+        super();
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.seller = seller;
+        this.customerId = customerId;
     }
 
-    public void setCustomerNames(String customerNames) {
-        this.customerNames = customerNames;
+    public String getName() {
+        return name;
     }
 
-    public String getCustomerIdNo() {
-        return customerIdNo;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setCustomerIdNo(String customerIdNo) {
-        this.customerIdNo = customerIdNo;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public String getCustomerPhoneNumber() {
-        return customerPhoneNumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public void setCustomerPhoneNumber(String customerPhoneNumber) {
-        this.customerPhoneNumber = customerPhoneNumber;
+    public Integer getSeller() {
+        return seller;
     }
 
-    public int getSeller_Id() {
-        return seller_Id;
+    public void setSeller(Integer seller) {
+        this.seller = seller;
     }
 
-    public void setSeller_Id(int seller_Id) {
-        this.seller_Id = seller_Id;
+    public String getCustomerId() {
+        return customerId;
     }
 
-    public int getId() {
-        return id;
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 }
