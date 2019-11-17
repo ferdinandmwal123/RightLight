@@ -96,27 +96,12 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
                       }
                   });
 
-
-
-
-
                   hideProgressBar();
               }else{
                   hideProgressBar();
                   showFailureMessage();
               }
-//                if (!response.isSuccessful()){
-//                    testCustomerName.setText("Code :" + response.code());
-//                    return;
-//                }
-//                List<Customer> customers =response.body();
-//
-//                for (Customer  customer : customers) {
-//                     String resultCustomerName ="";
-//                     resultCustomerName += "Name "+ customer.getCustomerNames() + "\n";
-//
-//                     testCustomerName.setText(resultCustomerName);
-//                }
+
 
             }
 
@@ -127,25 +112,52 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
         });
 
 
-
-
-
-
-      //        mRecyclerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                String itemClickedPosition = (String)adapter.getItem(position);
-//                Intent intent = new Intent(CustomersActivity.this,IndividualCustomerDetails.class);
-//                startActivity(intent);
-//
-//            }
-//        });
     }
 
 //    private void addCustomer() {
-//        Customer customer = new Customer("Name","12345","123456",1);
+//        Customer customer = new Customer("Name","12345",1,"3456789");
 //
-//        Call<Customer> call = customerNamesResponse.addCustomer(customer);
+//        Call<List<Customer>> call = customerNamesResponse.addCustomer(customer);
+//
+//
+//        call.enqueue(new Callback<List<Customer>>() {
+//            @Override
+//            public void onResponse(Call<List<Customer>> call, Response<List<Customer>> response) {
+//
+//                if (response.isSuccessful()){
+//                    final List<Customer> addDummyCustomer = response.body();
+//
+//                    Log.i("Adding a customer",addDummyCustomer.toString());
+//                    System.out.println("Adding a customer :" +addDummyCustomer);
+//
+//                    mRecyclerView = findViewById(R.id.customerRecyclerView);
+//                    mRecyclerView.setLayoutManager(new LinearLayoutManager(CustomersActivity.this));
+//                    mRecyclerView.setHasFixedSize(true);
+//
+//                    DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(CustomersActivity.this,DividerItemDecoration.VERTICAL);
+//                    dividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.recycler_line_divider));
+//                    mRecyclerView.addItemDecoration(dividerItemDecoration);
+//
+//                    runOnUiThread(new Runnable() {
+//                        public void run() {
+//                            adapter = new CustomerListAdapter(addDummyCustomer,CustomersActivity.this);
+//                            adapter.notifyDataSetChanged();
+//                            mRecyclerView.setAdapter(adapter);
+//                        }
+//                    });
+//
+//                }else{
+//                    hideProgressBar();
+//                    showFailureMessage();
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<Customer>> call, Throwable t) {
+//                errorTextView.setText(t.getMessage());
+//            }
+//        });
 //    }
 
     @Override
