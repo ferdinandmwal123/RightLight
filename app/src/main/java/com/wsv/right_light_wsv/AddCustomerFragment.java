@@ -50,7 +50,7 @@ public class AddCustomerFragment extends DialogFragment implements View.OnClickL
         if (v ==mAddCustomerBtn) {
 
             addCustomer();
-            dismiss();
+
         }
     }
 
