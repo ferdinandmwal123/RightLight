@@ -33,7 +33,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CustomersActivity extends AppCompatActivity implements View.OnClickListener{
-    //    String [] customerNameList ={"John Doe","Louis Otieno","Robin Mwaura","Ferdinard Thiog'o","Julia Mwong'ina","Kimatu Franklin"};
 
 
     private FloatingActionButton mAddCustomerFloatingBtn;
@@ -45,6 +44,7 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
     public List<Customer> mCustomers;
     CustomerListAdapter adapter;
     CustomerNamesResponse customerNamesResponse;
+    private final String BASE1_URL ="https://rightlight.herokuapp.com/api/";
 
 
     @Override
@@ -75,7 +75,7 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
     public void fetchCustomer(){
 
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://rightlight.herokuapp.com/api/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE1_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
