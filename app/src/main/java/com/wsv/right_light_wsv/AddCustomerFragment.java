@@ -88,11 +88,10 @@ public class AddCustomerFragment extends DialogFragment implements View.OnClickL
             public void onResponse(Call<List<Customer>> call, Response<List<Customer>> response) {
 
 
-                Toast.makeText(getContext(), "success", Toast.LENGTH_SHORT).show();
                     List<Customer> addThisCustomer =  response.body();
 
                     if (response.isSuccessful()){
-                        Toast.makeText(getContext(), addThisCustomer.toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Customer added", Toast.LENGTH_SHORT).show();
                     }
 
             }
