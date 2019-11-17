@@ -1,5 +1,6 @@
 package com.wsv.right_light_wsv;
 
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -11,7 +12,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.FragmentManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -19,8 +19,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -63,15 +61,39 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
 
         Log.i("Here", call.toString());
 
+/*
         call.enqueue(new Callback<List<Customer>>() {
             @Override
             public void onResponse(Call<List<Customer>> call, Response<List<Customer>> response) {
+
 
 
                 if (response.isSuccessful()) {
                     mCustomers = response.body();
                     Log.i("Here", response.body().toString());
                     Log.i("Ciustomer", mCustomers.toString());
+
+              if (response.isSuccessful()){
+                  mCustomers= response.body();
+                  Log.i("Here",response.body().toString());
+                  Log.i("Ciustomer", mCustomers.toString());
+
+
+                  mRecyclerView = findViewById(R.id.customerRecyclerView);
+                  mRecyclerView.setLayoutManager(new LinearLayoutManager(CustomersActivity.this));
+                  mRecyclerView.setHasFixedSize(true);
+
+                  DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(CustomersActivity.this,DividerItemDecoration.VERTICAL);
+                  dividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.recycler_line_divider));
+                  mRecyclerView.addItemDecoration(dividerItemDecoration);
+
+                  runOnUiThread(new Runnable() {
+                      public void run() {
+                          adapter = new CustomerListAdapter(mCustomers,CustomersActivity.this);
+                          adapter.notifyDataSetChanged();
+                          mRecyclerView.setAdapter(adapter);
+                      }
+                  });
 
 
                     mRecyclerView = findViewById(R.id.customerRecyclerView);
@@ -112,6 +134,7 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
                 errorTextView.setText(t.getMessage());
             }
         });
+*/
 
 
 

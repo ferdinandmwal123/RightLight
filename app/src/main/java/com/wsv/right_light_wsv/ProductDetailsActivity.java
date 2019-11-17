@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -11,6 +12,7 @@ import androidx.fragment.app.FragmentManager;
 public class ProductDetailsActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button mRentOut,mMarkAsDamaged,mDetails;
+    private TextView txtProductsName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +20,8 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
         setContentView(R.layout.activity_product_details);
         mRentOut = findViewById(R.id.btnRentOut);
         mRentOut.setOnClickListener(this);
+        txtProductsName = findViewById(R.id.txtProductName);
+
         mMarkAsDamaged = findViewById(R.id.btnMarkAsDamaged);
         mMarkAsDamaged.setOnClickListener(this);
         mDetails = findViewById(R.id.btnRentRecordDetails);

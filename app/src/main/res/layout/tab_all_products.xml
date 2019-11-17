@@ -10,7 +10,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/txtTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -25,120 +25,32 @@
             android:layout_marginBottom="32dp"
             android:background="@color/colorPrimary" />
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/product_list_card"
-            android:orientation="horizontal"
-            android:padding="16dp">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Boom Lamp - B1"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btnRentRecordDetails"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/curved_border"
-                android:onClick="onClick"
-                android:text="details"
-                android:textColor="@color/colorAccent" />
+                <TextView
+                    android:id="@+id/txtConnectionError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Connection Error"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorGrey"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
-            <Button
-                android:id="@+id/btnRent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/curved_border"
-                android:text="rent out"
-                android:textColor="@color/colorAccent" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/product_list_card"
-            android:orientation="horizontal"
-            android:padding="16dp">
-
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Boom Lamp - B2"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
-
-            <Button
-                android:id="@+id/btnDetails1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/curved_border"
-                android:onClick="onClick"
-                android:text="details"
-                android:textColor="@color/colorAccent" />
-
-            <Button
-                android:id="@+id/btnRent1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/curved_border"
-                android:text="rent out"
-                android:textColor="@color/colorAccent" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="16dp"
-            android:layout_weight="1"
-            android:background="@drawable/product_list_card"
-            android:orientation="horizontal"
-            android:padding="16dp">
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Boom Lamp - B3"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
-
-            <Button
-                android:id="@+id/btnDetails2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/curved_border"
-                android:onClick="onClick"
-                android:text="details"
-                android:textColor="@color/colorAccent" />
-
-            <Button
-                android:id="@+id/btnRent2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/curved_border"
-                android:text="rent out"
-                android:textColor="@color/colorAccent" />
-        </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+        </ScrollView>
 
     </LinearLayout>
 

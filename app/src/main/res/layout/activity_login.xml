@@ -33,10 +33,7 @@
         tools:layout_editor_absoluteX="20dp"
         tools:layout_editor_absoluteY="283dp" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray" />
+
 
     <EditText
         android:id="@+id/phone_text"
@@ -44,9 +41,9 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="phone"
-        android:text="@string/_0712345678"
+        android:hint="Enter number"
         android:textColor="@color/colorWhite"
-        android:textSize="55sp"
+        android:textSize="40sp"
         android:textStyle="bold" />
 
     <Button

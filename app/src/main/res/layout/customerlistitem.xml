@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="10dp">
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp">
 
     <TextView
         android:layout_width="fill_parent"
@@ -11,6 +11,7 @@
         android:text="Customer one"
         android:textSize="18dp"
         android:layout_weight="0.9"
+        android:textColor="@color/colorBlack"
         android:id="@+id/customerNameInList"/>
 
     <ImageView

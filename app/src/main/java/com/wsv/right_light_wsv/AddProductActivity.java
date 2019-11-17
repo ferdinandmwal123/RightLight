@@ -1,6 +1,8 @@
 package com.wsv.right_light_wsv;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -10,18 +12,29 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import static android.widget.Toast.LENGTH_LONG;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-public class AddProductActivity extends AppCompatActivity implements View.OnClickListener{
+import static android.widget.Toast.LENGTH_LONG;
+import static androidx.constraintlayout.widget.Constraints.TAG;
+
+public class AddProductActivity extends AppCompatActivity implements View.OnClickListener {
 
 
     private Button addProductButton;
     private EditText productID;
     private Spinner category;
     private Spinner type;
-
+    ProgressDialog progressDialog;
     private ArrayAdapter categoryAdapter;
     private ArrayAdapter typeAdapter;
+    String product_category = "Lamp";
+    String product_type = "Boom";
+    int seller = 1;
+    String product_id = "1";
+    private ApiProdResponse apiProdResponse;
+    private ApiService mAPIService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,34 +57,43 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
         typeAdapter.notifyDataSetChanged();
         type.setAdapter(typeAdapter);
 
-
+        mAPIService = RetrofitClient.getClient().create(ApiService.class);
         addProductButton.setOnClickListener(this);
+
 
     }
 
     @Override
     public void onClick(View v) {
 
-        switch (v.getId()) {
+        if (v == addProductButton) {
 
-            case R.id.btnAdd:
+            addProduct();
 
-                Product product = new Product();
-
-                product.setProduct_category(String.valueOf(category.getSelectedItem()));
-                product.setProduct_type(String.valueOf(type.getSelectedItem()));
-                product.setProduct_id(String.valueOf(productID.getText()));
-                product.setAvailable(true);
-                product.setRented(false);
-                product.setDamaged(false);
-
-                Toast.makeText(this, category.getSelectedItem() + " added successfully", LENGTH_LONG).show();
-
-                break;
-
-            default:
-                break;
         }
 
     }
+
+    public void addProduct() {
+        //ApiProdResponse apiProdResponse = new ApiProdResponse("lamp",1,"test",false,false,false,"B");
+        mAPIService.addProduct(product_id, product_category, product_type, seller, false, true, false).enqueue(new Callback<ApiProdResponse>() {
+            @Override
+            public void onResponse(Call<ApiProdResponse> call, Response<ApiProdResponse> response) {
+
+                if (response.isSuccessful()) {
+                    response.code();
+                    Log.i(TAG, "post submitted to API." + response.body().toString());
+                    Toast.makeText(AddProductActivity.this, "Addeddddddd", LENGTH_LONG);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ApiProdResponse> call, Throwable t) {
+                Toast.makeText(AddProductActivity.this, "FAilllededdddddd", LENGTH_LONG);
+                Log.e(TAG, "Unable to submit post to API.", t);
+
+            }
+        });
+    }
+
 }
