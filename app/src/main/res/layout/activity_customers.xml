@@ -7,10 +7,19 @@
     android:theme="@style/AppTheme"
     tools:context=".CustomersActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/customerRecyclerView"/>
+   <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:id="@+id/refreshLayout">
+
+
+       <androidx.recyclerview.widget.RecyclerView
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:id="@+id/customerRecyclerView"/>
+
+
+   </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,6 +38,8 @@
         android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:indeterminateDrawable="@drawable/progressbarcolor"
+        android:indeterminateDuration="@android:integer/config_longAnimTime"
         android:layout_centerInParent="true"/>
 
 

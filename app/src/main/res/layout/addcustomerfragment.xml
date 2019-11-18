@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:text="Add a new customer"
         android:layout_marginBottom="32dp"
-
+        android:id="@+id/addCustomerHeading"
         android:textSize="24dp"
         android:textColor="@color/colorBlack"
         android:textStyle="bold" />
@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:hint="First Name" />
+        android:hint="First name and second name" />
 
     <TextView
 
@@ -36,6 +36,7 @@
 
     <EditText
         android:id="@+id/createCustomerPhoneNumberField"
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_marginBottom="16dp"
         android:layout_height="wrap_content"
@@ -49,6 +50,7 @@
 
     <EditText
         android:id="@+id/createCustomerIdNoField"
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_marginBottom="16dp"
         android:layout_height="wrap_content"
