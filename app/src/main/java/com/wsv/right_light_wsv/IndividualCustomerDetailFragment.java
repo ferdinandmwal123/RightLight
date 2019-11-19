@@ -72,7 +72,7 @@ public class IndividualCustomerDetailFragment extends Fragment {
         mCustomerIdNoNumber =itemView.findViewById(R.id.customersIdNoNumber);
         mCustomerPhoneNoNumber = itemView.findViewById(R.id.customersPhoneNoNumber);
         mCustomerLastRentalDate =itemView.findViewById(R.id.customersDateDate);
-        mCustomerLastRentalDate = itemView.findViewById(R.id.customersLateReturnNumber);
+        mCustomerLateReturnNumber = itemView.findViewById(R.id.customersLateReturnNumber);
 
 
 
@@ -96,6 +96,6 @@ public class IndividualCustomerDetailFragment extends Fragment {
         if (checkIfLate == false){
             lateCount = lateCount++;
         }
-        mCustomerLastRentalDate.setText(String.valueOf(lateCount));
+        mCustomerLateReturnNumber.setText(String.valueOf(lateCount));
     }
 }

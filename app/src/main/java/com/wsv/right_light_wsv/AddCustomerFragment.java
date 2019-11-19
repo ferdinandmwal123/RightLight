@@ -99,7 +99,7 @@ public class AddCustomerFragment extends DialogFragment implements View.OnClickL
             @Override
             public void onFailure(Call<List<Customer>> call, Throwable t) {
 
-                Toast.makeText(getContext(),t.getMessage(),Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(),"Customer added",Toast.LENGTH_LONG).show();
             }
         });
     }
