@@ -59,8 +59,8 @@ dependencies {
     annotationProcessor 'org.parceler:parceler:1.1.12'
 
 
-    //africas talking dependency
-    //implementation 'com.africastalking:core:3.4.2'
+
+
 
 
 }

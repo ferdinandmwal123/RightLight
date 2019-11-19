@@ -7,6 +7,8 @@ import com.google.gson.annotations.SerializedName;
 
 import org.parceler.Parcel;
 
+import java.util.Comparator;
+
 @Parcel
 public class Customer {
 
@@ -42,6 +44,13 @@ public class Customer {
         this.seller = seller;
         this.customerId = customerId;
     }
+
+    public static final Comparator<Customer> SORT_BY_NAME  = new Comparator<Customer>() {
+        @Override
+        public int compare(Customer o1, Customer o2) {
+            return o1.name.compareToIgnoreCase(o2.name);
+        }
+    };
 
     public String getName() {
         return name;

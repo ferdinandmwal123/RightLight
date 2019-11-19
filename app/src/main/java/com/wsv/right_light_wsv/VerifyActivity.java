@@ -31,6 +31,25 @@ public class VerifyActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), HomeActivity.class));
             }
         });
+        verifyCode();
+
+
+    }
+
+    private void verifyCode() {
+        Intent intent = getIntent();
+        final String l = intent.getStringExtra("code");
+
+        String v = mCode.getText().toString();
+
+       mSignIn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               if(v.equals(l)){
+                   startActivity(new Intent(getApplicationContext(),HomeActivity.class));
+               }
+           }
+       });
     }
 }
 

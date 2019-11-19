@@ -1,7 +1,14 @@
 package com.wsv.right_light_wsv;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,9 +27,10 @@ import java.util.List;
  */
 public class IndividualCustomerDetailFragment extends Fragment {
 
-    private TextView mCustomerNameDetails;
     private TextView mCustomerIdNoNumber;
     private TextView mCustomerPhoneNoNumber;
+
+    private Customer myCustomer;
 
     private List<Customer> mCustomer;
 
@@ -33,19 +41,21 @@ public class IndividualCustomerDetailFragment extends Fragment {
 
     public static IndividualCustomerDetailFragment newInstance(Customer customer) {
         IndividualCustomerDetailFragment individualCustomerDetailFragment = new IndividualCustomerDetailFragment();
-        Bundle args = new Bundle();
+//        Bundle args = new Bundle();
+
+            individualCustomerDetailFragment.myCustomer = customer;
 
 
-        args.putParcelable("customer", Parcels.wrap(customer));
-
-        individualCustomerDetailFragment.setArguments(args);
+//        args.putParcelable("customer", Parcels.wrap(customer));
+//
+//        individualCustomerDetailFragment.setArguments(args);
         return individualCustomerDetailFragment;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mCustomer = Parcels.unwrap(getArguments().getParcelable("customer"));
+
     }
 
     @Override
@@ -56,11 +66,17 @@ public class IndividualCustomerDetailFragment extends Fragment {
 
 
         mCustomerNameDetails = itemView.findViewById(R.id.customersNameDetails);
-        mCustomerIdNoNumber = itemView.findViewById(R.id.customersIdNoNumber);
-        mCustomerPhoneNoNumber = itemView.findViewById(R.id.customersPhoneNoNumber);
+       
 
 
         mCustomerNameDetails.setText("this is name" + mCustomer.toString());
+
+        mCustomerIdNoNumber =itemView.findViewById(R.id.customersIdNoNumber);
+        mCustomerPhoneNoNumber = itemView.findViewById(R.id.customersPhoneNoNumber);
+
+
+        mCustomerPhoneNoNumber.setText(myCustomer.getPhoneNumber());
+        mCustomerIdNoNumber.setText(myCustomer.getCustomerId());
         return itemView;
     }
 

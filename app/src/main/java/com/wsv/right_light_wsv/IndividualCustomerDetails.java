@@ -1,8 +1,14 @@
 package com.wsv.right_light_wsv;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -29,7 +35,10 @@ public class IndividualCustomerDetails extends AppCompatActivity {
 
         int startPosition = getIntent().getIntExtra("position", 0);
 
-        adapterViewPagerCustomer = new CustomerPageAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, mCustomers);
+
+        System.out.println("here is another stupid error in the activity:" + mCustomers);
+
+        adapterViewPagerCustomer = new CustomerPageAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,mCustomers);
         mViewPager.setAdapter(adapterViewPagerCustomer);
         mViewPager.setCurrentItem(startPosition);
     }
@@ -38,5 +47,15 @@ public class IndividualCustomerDetails extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.editcustomerdetails,menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.editIcon :
+                
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

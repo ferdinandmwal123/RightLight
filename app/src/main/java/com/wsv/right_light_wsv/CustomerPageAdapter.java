@@ -1,5 +1,7 @@
 package com.wsv.right_light_wsv;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -23,6 +25,7 @@ public class CustomerPageAdapter extends FragmentPagerAdapter {
         return mCustomers.get(position).getName();
     }
 
+
     @NonNull
     @Override
     public Fragment getItem(int position) {
@@ -33,4 +36,17 @@ public class CustomerPageAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return mCustomers.size();
     }
+
+    @Nullable
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return mCustomers.get(position).getName();
+    }
+
+    public CustomerPageAdapter(@NonNull FragmentManager fm, int behavior,List<Customer> customers) {
+        super(fm, behavior);
+        this.mCustomers=customers;
+    }
+
+
 }
