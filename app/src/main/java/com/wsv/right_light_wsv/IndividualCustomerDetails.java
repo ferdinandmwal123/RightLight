@@ -2,6 +2,7 @@ package com.wsv.right_light_wsv;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -53,7 +54,11 @@ public class IndividualCustomerDetails extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.editIcon :
+            case R.id.editIcon : {
+                FragmentManager fm = getSupportFragmentManager();
+                EditCustomerFragment  addCustomerFragment = new EditCustomerFragment();
+                addCustomerFragment.show(fm,"Edit customer details");
+            }
                 
         }
         return super.onOptionsItemSelected(item);

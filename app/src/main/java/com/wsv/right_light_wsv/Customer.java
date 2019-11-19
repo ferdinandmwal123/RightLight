@@ -2,6 +2,9 @@
 
 package com.wsv.right_light_wsv;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -24,6 +27,11 @@ public class Customer {
     @SerializedName("customer_id")
     @Expose
     private String customerId;
+    @Nullable
+    @SerializedName("id")
+    @Expose
+    private int id;
+
 
     /**
      * No args constructor for use in serialization
@@ -43,6 +51,22 @@ public class Customer {
         this.phoneNumber = phoneNumber;
         this.seller = seller;
         this.customerId = customerId;
+    }
+
+    public Customer(String name, String phoneNumber, Integer seller, String customerId, int id) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.seller = seller;
+        this.customerId = customerId;
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public static final Comparator<Customer> SORT_BY_NAME  = new Comparator<Customer>() {
