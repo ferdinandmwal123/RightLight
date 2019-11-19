@@ -19,7 +19,7 @@ import retrofit2.Response;
  * A simple {@link Fragment} subclass.
  */
 public class IndividualCustomerDetailFragment extends Fragment {
-    private TextView mCustomerIdNoNumber,mCustomerPhoneNoNumber,mCustomerLateReturnNumber;
+    private TextView mCustomerIdNoNumber,mCustomerPhoneNoNumber,mCustomerLateReturnNumber,mCustomerRentalsNumber;
 
     private TextView mCustomerLastRentalDate;
     private Customer myCustomer;
@@ -54,6 +54,7 @@ public class IndividualCustomerDetailFragment extends Fragment {
 
                 getLastRentRecord(response.body());
                 getCountOfLateReturns(response.body());
+                getCustomerRentals(response.body());
 
 
             }
@@ -73,6 +74,7 @@ public class IndividualCustomerDetailFragment extends Fragment {
         mCustomerPhoneNoNumber = itemView.findViewById(R.id.customersPhoneNoNumber);
         mCustomerLastRentalDate =itemView.findViewById(R.id.customersDateDate);
         mCustomerLateReturnNumber = itemView.findViewById(R.id.customersLateReturnNumber);
+        mCustomerRentalsNumber = itemView.findViewById(R.id.customersRentalsNumber);
 
 
 
@@ -97,5 +99,11 @@ public class IndividualCustomerDetailFragment extends Fragment {
             lateCount = lateCount++;
         }
         mCustomerLateReturnNumber.setText(String.valueOf(lateCount));
+    }
+
+    public void getCustomerRentals(List<ApiRentResponse> customerRentals){
+        int customerId = new Customer().getId();
+
+        mCustomerRentalsNumber.setText(String.valueOf(customerRentals.get(customerId).getProduct()));
     }
 }
