@@ -57,7 +57,7 @@
         android:hint="Customer's National ID" />
 
     <Button
-        android:id="@+id/addCustomerBtn"
+        android:id="@+id/editCustomerBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/curved_border"

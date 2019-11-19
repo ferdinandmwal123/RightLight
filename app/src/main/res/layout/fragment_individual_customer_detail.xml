@@ -130,49 +130,13 @@
         android:layout_below="@+id/customersLateReturnNumber"
         android:layout_marginTop="20dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/customersStatusText"
-        android:text="Status"
-        android:textStyle="normal"
-        android:textColor="@color/colorOrange"
-        android:layout_below="@+id/customersDateText"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/customersStatusStatus"
-        android:text="Late"
-        android:layout_toRightOf="@+id/customersIdNoText"
-        android:textStyle="normal"
-        android:textColor="@color/colorOrange"
-        android:layout_marginLeft="152dp"
-        android:layout_below="@+id/customersDateDate"
-        android:layout_marginTop="20dp"/>
 
-    <!--    <TextView-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_below="@id/customersStatusStatus"-->
-    <!--        android:text="Testing"-->
-    <!--        android:id="@+id/tet_one" />-->
-
-    <!--    <TextView-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_below="@id/customersStatusStatus"-->
-    <!--        android:text="Testing Two"-->
-    <!--        android:id="@+id/test_two"-->
-    <!--        android:layout_marginLeft="100dp"-->
-    <!--        android:layout_toRightOf="@id/tet_one"/>-->
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16dp"
-        android:layout_below="@+id/customersStatusStatus"
+        android:layout_below="@+id/customersDateDate"
         android:textColor="@color/colorWhite"
         android:background="@color/colorOrange"
         android:layout_margin="20dp"
