@@ -4,34 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".IndividualCustomerDetailFragment">
-
     <!-- TODO: Update blank fragment layout -->
-
-
     <TextView
         android:id="@+id/customersIdNoText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/customersNameDetails"
         android:layout_margin="10dp"
         android:text="ID No:"
         android:textColor="@color/colorOrange"
         android:textStyle="normal" />
-
     <TextView
         android:id="@+id/customersIdNoNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/customersNameDetails"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/customersIdNoText"
         android:text="123456"
         android:textColor="@color/colorOrange"
         android:textStyle="normal" />
-
-
-
     <TextView
         android:id="@+id/customersPhoneNumberText"
         android:layout_width="wrap_content"
@@ -41,7 +32,6 @@
         android:text="Phone number"
         android:textColor="@color/colorOrange"
         android:textStyle="normal" />
-
     <TextView
         android:id="@+id/customersPhoneNoNumber"
         android:layout_width="wrap_content"
@@ -53,7 +43,6 @@
         android:text="07123456789"
         android:textColor="@color/colorOrange"
         android:textStyle="normal" />
-
     <View
         android:layout_width="wrap_content"
         android:layout_height="1dp"
@@ -61,7 +50,6 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@color/colorGrey" />
-
     <TextView
         android:id="@+id/customerHistoryHeader"
         android:layout_width="wrap_content"
@@ -72,7 +60,6 @@
         android:textColor="@color/colorBlack"
         android:textSize="24dp"
         android:textStyle="bold" />
-
     <TextView
         android:id="@+id/customersRentalsNoText"
         android:layout_width="wrap_content"
@@ -83,7 +70,6 @@
         android:text="Number of rentals"
         android:textColor="@color/colorOrange"
         android:textStyle="normal" />
-
     <TextView
         android:id="@+id/customersRentalsNumber"
         android:layout_width="wrap_content"
@@ -95,7 +81,6 @@
         android:text="8"
         android:textColor="@color/colorOrange"
         android:textStyle="normal" />
-
     <TextView
         android:id="@+id/customersLateReturnsText"
         android:layout_width="wrap_content"
@@ -106,7 +91,6 @@
         android:text="Number of late returns"
         android:textColor="@color/colorOrange"
         android:textStyle="normal" />
-
     <TextView
         android:id="@+id/customersLateReturnNumber"
         android:layout_width="wrap_content"
@@ -118,7 +102,6 @@
         android:text="2"
         android:textColor="@color/colorOrange"
         android:textStyle="normal" />
-
     <TextView
         android:id="@+id/customersDateText"
         android:layout_width="wrap_content"
@@ -129,7 +112,6 @@
         android:text="Date of last rental"
         android:textColor="@color/colorOrange"
         android:textStyle="normal" />
-
     <TextView
         android:id="@+id/customersDateDate"
         android:layout_width="wrap_content"
@@ -142,40 +124,14 @@
         android:textColor="@color/colorOrange"
         android:textStyle="normal" />
 
-    <TextView
-        android:id="@+id/customersStatusText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/customersDateText"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        android:text="Status"
-        android:textColor="@color/colorOrange"
-        android:textStyle="normal" />
-
-    <TextView
-        android:id="@+id/customersStatusStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/customersDateDate"
-        android:layout_marginLeft="152dp"
-        android:layout_marginTop="20dp"
-        android:layout_toRightOf="@+id/customersIdNoText"
-        android:text="Late"
-        android:textColor="@color/colorOrange"
-        android:textStyle="normal" />
-
-  
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/customersStatusStatus"
+        android:layout_below="@+id/customersDateDate"
         android:layout_margin="20dp"
         android:background="@color/colorOrange"
         android:padding="8dp"
         android:text="ban customer"
         android:textColor="@color/colorWhite"
         android:textSize="16dp" />
-
 </RelativeLayout>
