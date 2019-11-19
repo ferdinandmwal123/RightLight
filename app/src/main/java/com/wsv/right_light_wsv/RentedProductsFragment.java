@@ -38,7 +38,7 @@ public class RentedProductsFragment extends Fragment {
 
 
         progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Loading....");
+        progressDialog.setMessage("Fetching products from database.....");
         progressDialog.show();
 
         service = RetrofitClient.getClient().create(ApiService.class);

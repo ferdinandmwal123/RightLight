@@ -24,7 +24,7 @@ public class RetrofitClient {
             okHttpClient.addInterceptor(chain -> {
                 Request request = chain.request().newBuilder()
                         .addHeader("Connection", "close")
-                        .addHeader("Content-Type", "multipart/form-data")
+                        .addHeader("Content-Type", "application/json")
                         .build();
                 return chain.proceed(request);
             });

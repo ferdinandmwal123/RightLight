@@ -34,7 +34,7 @@ public class AllProductsFragment extends Fragment {
         View view = inflater.inflate(R.layout.tab_all_products, container, false);
 
         progressDoalog = new ProgressDialog(getActivity(), R.style.MyAlertDialogStyle);
-        progressDoalog.setMessage("Loading....");
+        progressDoalog.setMessage("Fetching products from database.....");
         progressDoalog.show();
 
         service = RetrofitClient.getClient().create(ApiService.class);

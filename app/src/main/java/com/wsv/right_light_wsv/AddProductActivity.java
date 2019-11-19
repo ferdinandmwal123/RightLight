@@ -10,7 +10,15 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,7 +37,7 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
     ProgressDialog progressDialog;
     private ArrayAdapter categoryAdapter;
     private ArrayAdapter typeAdapter;
-    String product_category = "Lamp";
+    List<String> product_category = new ArrayList<String>();
     String product_type = "Boom";
     int seller = 1;
     String product_id = "1";
@@ -44,7 +52,7 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
         category = findViewById(R.id.categoryDropdown);
         productID = findViewById(R.id.etProductId);
         addProductButton = findViewById(R.id.btnAdd);
-
+        product_category.add("Lamp");
         // add items to category dropdown list
         category.setAdapter(categoryAdapter);
         categoryAdapter = ArrayAdapter.createFromResource(this, R.array.categories, R.layout.spinner);
@@ -75,8 +83,8 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
     }
 
     public void addProduct() {
-        //ApiProdResponse apiProdResponse = new ApiProdResponse("lamp",1,"test",false,false,false,"B");
-        mAPIService.addProduct(product_id, product_category, product_type, seller, false, true, false).enqueue(new Callback<ApiProdResponse>() {
+        ApiProdResponse apiProdResponse = new ApiProdResponse(product_category,product_type,seller,"test",false,false,false,"B1");
+        mAPIService.addProduct(apiProdResponse).enqueue(new Callback<ApiProdResponse>() {
             @Override
             public void onResponse(Call<ApiProdResponse> call, Response<ApiProdResponse> response) {
 

@@ -1,5 +1,8 @@
 package com.wsv.right_light_wsv;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,12 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
-import com.wsv.right_light_wsv.RentRecordAPI.models.RentRecordPost;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,11 +28,14 @@ public class RentActivity extends AppCompatActivity implements View.OnClickListe
     private ApiService mAPIService;
     private Button mAddCustomer, mRentProduct;
     private EditText mDate;
+    private ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rent);
+
+
 
         Intent incomingIntent = getIntent();
         String date = incomingIntent.getStringExtra("date");
@@ -46,7 +53,7 @@ public class RentActivity extends AppCompatActivity implements View.OnClickListe
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 EditText return_date = findViewById(R.id.etReturnDate);
-                return_date.setText(dayOfMonth + "/" + month + "/" + year);
+                return_date.setText(year + "-" + month + "-" + dayOfMonth);
             }
         });
 
@@ -68,28 +75,79 @@ public class RentActivity extends AppCompatActivity implements View.OnClickListe
             int customer = Integer.parseInt(customer_id.getText().toString());
             String returnDate = return_date.getText().toString();
 
-            rentProduct(product, customer, returnDate, "16/11/2019", 20.0);
+            ApiRentResponse apiRentResponse = new ApiRentResponse();
+            apiRentResponse.setCustomer(customer);
+            apiRentResponse.setProduct(product);
+            apiRentResponse.setReturnDate(returnDate);
+            apiRentResponse.setReturned(false);
+            apiRentResponse.setLate(false);
+            apiRentResponse.setRentDate("2019-11-18");
+
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(RentActivity.this);
+            builder1.setTitle("Confirm Details");
+            builder1.setMessage("Product id:\t\t"+product+"\ncustomer:\t\t"+customer+"\nreturn date:\t\t"+returnDate);
+            builder1.setCancelable(true);
+
+            builder1.setPositiveButton(
+                    "CONFIRM",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            rentProduct(apiRentResponse);
+
+                            mProgressDialog = new ProgressDialog(RentActivity.this);
+                            mProgressDialog.setMessage("Recording Details....");
+                            mProgressDialog.show();
+
+                            dialog.cancel();
+                        }
+                    });
+
+            builder1.setNegativeButton(
+                    "CANCEL",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+
+            AlertDialog alert11 = builder1.create();
+            alert11.show();
+
+
+
+
+
+
 
         }
     }
 
 
-    public void rentProduct(int product_id, int customer_id, String return_date, String rent_date, double amount) {
-        mAPIService.rentProduct(product_id, customer_id, 1, rent_date, return_date, amount).enqueue(new Callback<RentRecordPost>() {
+    public void rentProduct(ApiRentResponse apiRentResponse) {
+
+        mAPIService.rentProduct(apiRentResponse).enqueue(new Callback<ApiRentResponse>() {
             @Override
-            public void onResponse(Call<RentRecordPost> call, Response<RentRecordPost> response) {
+            public void onResponse(Call<ApiRentResponse> call, Response<ApiRentResponse> response) {
 
                 if (response.isSuccessful()) {
                     Toast.makeText(RentActivity.this, "Added", Toast.LENGTH_LONG);
+                    mProgressDialog.dismiss();
 
+                    Dialog dialog = new Dialog(RentActivity.this);
+                    dialog.setCancelable(true);
+                    dialog.setContentView(R.layout.alert_dialog);
+                    dialog.getWindow().setLayout(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+                    dialog.show();
                 }
             }
 
             @Override
-            public void onFailure(Call<RentRecordPost> call, Throwable t) {
+            public void onFailure(Call<ApiRentResponse> call, Throwable t) {
 
                 Log.e(TAG, "ERROR");
             }
         });
+
     }
 }
