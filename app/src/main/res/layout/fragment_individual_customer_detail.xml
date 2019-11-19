@@ -123,31 +123,11 @@
         android:text="20-11-2019"
         android:textColor="@color/colorOrange"
         android:textStyle="normal" />
-    <TextView
-        android:id="@+id/customersStatusText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/customersDateText"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        android:text="Status"
-        android:textColor="@color/colorOrange"
-        android:textStyle="normal" />
-    <TextView
-        android:id="@+id/customersStatusStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/customersDateDate"
-        android:layout_marginLeft="152dp"
-        android:layout_marginTop="20dp"
-        android:layout_toRightOf="@+id/customersIdNoText"
-        android:text="Late"
-        android:textColor="@color/colorOrange"
-        android:textStyle="normal" />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/customersStatusStatus"
+        android:layout_below="@+id/customersDateDate"
         android:layout_margin="20dp"
         android:background="@color/colorOrange"
         android:padding="8dp"
