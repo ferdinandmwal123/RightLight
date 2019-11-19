@@ -92,6 +92,7 @@ public class AddCustomerFragment extends DialogFragment implements View.OnClickL
 
                     if (response.isSuccessful()){
                         Toast.makeText(getContext(), "Customer added", Toast.LENGTH_SHORT).show();
+                        dismiss();
                     }
 
             }
@@ -100,6 +101,7 @@ public class AddCustomerFragment extends DialogFragment implements View.OnClickL
             public void onFailure(Call<List<Customer>> call, Throwable t) {
 
                 Toast.makeText(getContext(),"Customer added",Toast.LENGTH_LONG).show();
+                dismiss();
             }
         });
     }
