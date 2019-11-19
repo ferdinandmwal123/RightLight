@@ -7,5 +7,8 @@
         android:icon="@drawable/ic_search_black_24dp"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="ifRoom|collapseActionView" />
+<!--    <item android:id="@+id/bannedCustomers"-->
+<!--        android:title="Banned customers"-->
+<!--        app:showAsAction="never"/>-->
 
 </menu>
