@@ -19,12 +19,11 @@ import retrofit2.Response;
  * A simple {@link Fragment} subclass.
  */
 public class IndividualCustomerDetailFragment extends Fragment {
-    private TextView mCustomerIdNoNumber;
-    private TextView mCustomerPhoneNoNumber;
+    private TextView mCustomerIdNoNumber,mCustomerPhoneNoNumber,mCustomerLateReturnNumber;
+
     private TextView mCustomerLastRentalDate;
     private Customer myCustomer;
     private List<Customer> mCustomer;
-    private List<ApiRentResponse>  customerRentRecordHistory;
     private  ApiService apiService;
 
 
@@ -47,13 +46,14 @@ public class IndividualCustomerDetailFragment extends Fragment {
         Customer customer = new Customer();
 
         apiService = RetrofitClient.getClient().create(ApiService.class);
-        Call<List<ApiRentResponse>> call = apiService.getCustomerRentRecord(3);
+        Call<List<ApiRentResponse>> call = apiService.getCustomerRentRecord(customer.getId());
 
         call.enqueue(new Callback<List<ApiRentResponse>>() {
             @Override
             public void onResponse(Call<List<ApiRentResponse>> call, Response<List<ApiRentResponse>> response) {
 
                 getLastRentRecord(response.body());
+                getCountOfLateReturns(response.body());
 
 
             }
@@ -72,6 +72,7 @@ public class IndividualCustomerDetailFragment extends Fragment {
         mCustomerIdNoNumber =itemView.findViewById(R.id.customersIdNoNumber);
         mCustomerPhoneNoNumber = itemView.findViewById(R.id.customersPhoneNoNumber);
         mCustomerLastRentalDate =itemView.findViewById(R.id.customersDateDate);
+        mCustomerLastRentalDate = itemView.findViewById(R.id.customersLateReturnNumber);
 
 
 
@@ -84,5 +85,17 @@ public class IndividualCustomerDetailFragment extends Fragment {
         int lastRecord =customerRentRecordHistory.size() -1;
         String lastDate = customerRentRecordHistory.get(lastRecord).getRentDate();
         mCustomerLastRentalDate.setText(lastDate);
+    }
+
+    public void getCountOfLateReturns(List<ApiRentResponse> customerCountOfLateReturn){
+        int lateCount = 0;
+        Customer customer = new Customer();
+        int checkCustomerId = customer.getId();
+        boolean checkIfLate = customerCountOfLateReturn.get(checkCustomerId).getLate();
+
+        if (checkIfLate == false){
+            lateCount = lateCount++;
+        }
+        mCustomerLastRentalDate.setText(String.valueOf(lateCount));
     }
 }
