@@ -1,11 +1,10 @@
 package com.wsv.right_light_wsv;
 
-import android.content.Context;
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.PopupWindow;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,13 +13,12 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
-public class ProductsActivity extends AppCompatActivity {
+public class ProductsActivity extends AppCompatActivity implements View.OnClickListener {
 
     private PopupWindow mPopupWindow;
-
-
-
-
+    ProgressDialog progressDialog;
+    private Button mAddProduct;
+    private ApiService mAPIService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,19 +32,27 @@ public class ProductsActivity extends AppCompatActivity {
         tabs.setupWithViewPager(viewPager);
         FloatingActionButton fab = findViewById(R.id.fab);
 
-        //API
-
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                startActivity(new Intent(ProductsActivity.this, AddProductActivity.class));
 
-                View popupView = LayoutInflater.from(getApplicationContext()).inflate(R.layout.popup_add_product, null);
-                mPopupWindow = new PopupWindow(popupView, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
-                mPopupWindow.showAtLocation(viewPager, Gravity.CENTER, 0, 0);
-                mPopupWindow.setFocusable(true);
-                mPopupWindow.update();
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()) {
+
+            case R.id.btnProductDetails:
+
+                startActivity(new Intent(ProductsActivity.this, ProductDetailsActivity.class));
+
+                break;
+        }
+
     }
 }

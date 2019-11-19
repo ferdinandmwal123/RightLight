@@ -17,11 +17,17 @@
             android:id="@+id/txtAddAProduct"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
+
             android:text="Add a Product"
             android:textColor="@android:color/black"
             android:textSize="32sp"
             android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginBottom="32dp"
+            android:background="@color/colorPrimary" />
 
         <TextView
             android:id="@+id/txtCategory"
@@ -74,9 +80,10 @@
             android:id="@+id/btnAdd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/curved_border"
+            android:onClick="onClick"
             android:text="Add product"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/colorWhite" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

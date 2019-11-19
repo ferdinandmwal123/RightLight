@@ -27,13 +27,11 @@ public class Customer {
 
     /**
      * No args constructor for use in serialization
-     *
      */
     public Customer() {
     }
 
     /**
-     *
      * @param seller
      * @param phoneNumber
      * @param name

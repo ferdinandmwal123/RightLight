@@ -2,7 +2,6 @@ package com.wsv.right_light_wsv;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import org.parceler.Parcels;
 
@@ -87,7 +85,14 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
 
     }
 
-    //search functionality on recyclerview
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, IndividualCustomerDetails.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("customers", Parcels.wrap(mCustomers));
+            mContext.startActivity(intent);
+
 
     @Override
     public Filter getFilter() {

@@ -14,6 +14,18 @@ public class CustomerPageAdapter extends FragmentPagerAdapter {
 
     private List<Customer> mCustomers;
 
+    public CustomerPageAdapter(@NonNull FragmentManager fm, int behavior, List<Customer> customers) {
+        super(fm, behavior);
+        this.mCustomers = customers;
+    }
+
+    @Nullable
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return mCustomers.get(position).getName();
+    }
+
+
     @NonNull
     @Override
     public Fragment getItem(int position) {

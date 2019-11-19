@@ -1,21 +1,32 @@
 package com.wsv.right_light_wsv;
 
-import android.content.Intent;
+import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class RentedProductsFragment extends Fragment {
 
+    ProgressDialog progressDialog;
+    ApiService service;
+    private ProductListAdapterRented adapter;
+    private RecyclerView recyclerView;
 
     @Nullable
     @Override
@@ -26,7 +37,31 @@ public class RentedProductsFragment extends Fragment {
         View view = inflater.inflate(R.layout.tab_rented_products, container, false);
 
 
-        Button details = view.findViewById(R.id.btnRentRecordDetails);
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Fetching products from database.....");
+        progressDialog.show();
+
+        service = RetrofitClient.getClient().create(ApiService.class);
+        Call<List<ApiProdResponse>> call = service.getRentedProducts(true);
+
+        call.enqueue(new Callback<List<ApiProdResponse>>() {
+            @Override
+            public void onResponse(Call<List<ApiProdResponse>> call, Response<List<ApiProdResponse>> response) {
+                progressDialog.dismiss();
+                generateDataList(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<ApiProdResponse>> call, Throwable t) {
+                progressDialog.dismiss();
+                TextView connectionError = getView().findViewById(R.id.txtConnectionError);
+                connectionError.setVisibility(View.VISIBLE);
+                Log.e(TAG, "onFailure: ", t);
+
+            }
+        });
+
+ /*      Button details = view.findViewById(R.id.btnRentRecordDetails);
         Button returnProduct = view.findViewById(R.id.btnReturnProduct);
         returnProduct.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,7 +69,8 @@ public class RentedProductsFragment extends Fragment {
                 startActivity(new Intent(getActivity(),ReturnActivity.class));
             }
         });
- /*      // details.setOnClickListener(new View.OnClickListener() {
+
+         // details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 View popupView = LayoutInflater.from(getApplicationContext(getActivity())).inflate(R.layout.popup_add_product, null);
@@ -45,5 +81,13 @@ public class RentedProductsFragment extends Fragment {
         });*/
 
     return view;
+    }
+
+    private void generateDataList(List<ApiProdResponse> productList) {
+        recyclerView = getView().findViewById(R.id.recyclerView);
+        adapter = new ProductListAdapterRented(getActivity(), productList);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
     }
 }
