@@ -4,179 +4,134 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".IndividualCustomerDetailFragment">
-
     <!-- TODO: Update blank fragment layout -->
-
-
-
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/customersIdNoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:text="ID No:"
-        android:textStyle="normal"
         android:textColor="@color/colorOrange"
-        android:layout_margin="10dp"/>
+        android:textStyle="normal" />
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/customersIdNoNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/customersIdNoText"
         android:text="123456"
-        android:layout_toRightOf="@+id/customersIdNoText"
-        android:textStyle="normal"
         android:textColor="@color/colorOrange"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="10dp"/>
-
+        android:textStyle="normal" />
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/customersPhoneNumberText"
-        android:text="Phone number"
-        android:textStyle="normal"
-        android:textColor="@color/colorOrange"
-        android:layout_below="@+id/customersIdNoText"
-        android:layout_margin="10dp"/>
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/customersPhoneNoNumber"
-        android:text="07123456789"
-        android:layout_toRightOf="@+id/customersIdNoText"
-        android:textStyle="normal"
+        android:layout_below="@+id/customersIdNoText"
+        android:layout_margin="10dp"
+        android:text="Phone number"
         android:textColor="@color/colorOrange"
-        android:layout_marginLeft="100dp"
+        android:textStyle="normal" />
+    <TextView
+        android:id="@+id/customersPhoneNoNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/customersIdNoNumber"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@+id/customersIdNoText"
+        android:text="07123456789"
+        android:textColor="@color/colorOrange"
+        android:textStyle="normal" />
     <View
         android:layout_width="wrap_content"
         android:layout_height="1dp"
-        android:background="@color/colorGrey"
         android:layout_below="@+id/customersPhoneNumberText"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
-
+        android:layout_marginRight="10dp"
+        android:background="@color/colorGrey" />
     <TextView
+        android:id="@+id/customerHistoryHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/customerHistoryHeader"
+        android:layout_below="@+id/customersPhoneNumberText"
+        android:layout_margin="20dp"
         android:text="Customer's history"
         android:textColor="@color/colorBlack"
-        android:textStyle="bold"
         android:textSize="24dp"
-        android:layout_below="@+id/customersPhoneNumberText"
-        android:layout_margin="20dp"/>
+        android:textStyle="bold" />
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/customersRentalsNoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/customerHistoryHeader"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
         android:text="Number of rentals"
-        android:textStyle="normal"
         android:textColor="@color/colorOrange"
-        android:layout_below="@+id/customerHistoryHeader"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"/>
+        android:textStyle="normal" />
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/customersRentalsNumber"
-        android:text="8"
-        android:layout_toRightOf="@+id/customersIdNoText"
-        android:textStyle="normal"
-        android:textColor="@color/colorOrange"
-        android:layout_marginLeft="145dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/customerHistoryHeader"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginLeft="145dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@+id/customersIdNoText"
+        android:text="0"
+        android:textColor="@color/colorOrange"
+        android:textStyle="normal" />
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/customersLateReturnsText"
-        android:text="Number of late returns"
-        android:textStyle="normal"
-        android:textColor="@color/colorOrange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/customersRentalsNoText"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"/>
+        android:text="Number of late returns"
+        android:textColor="@color/colorOrange"
+        android:textStyle="normal" />
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/customersLateReturnNumber"
-        android:text="2"
-        android:layout_toRightOf="@+id/customersIdNoText"
-        android:textStyle="normal"
-        android:textColor="@color/colorOrange"
-        android:layout_marginLeft="152dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/customersRentalsNumber"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginLeft="152dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@+id/customersIdNoText"
+        android:text="0"
+        android:textColor="@color/colorOrange"
+        android:textStyle="normal" />
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/customersDateText"
-        android:text="Date of last rental"
-        android:textStyle="normal"
-        android:textColor="@color/colorOrange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/customersLateReturnsText"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"/>
+        android:text="Date of last rental"
+        android:textColor="@color/colorOrange"
+        android:textStyle="normal" />
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/customersDateDate"
-        android:text="20-11-2019"
-        android:layout_toRightOf="@+id/customersIdNoText"
-        android:textStyle="normal"
-        android:textColor="@color/colorOrange"
-        android:layout_marginLeft="152dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/customersLateReturnNumber"
-        android:layout_marginTop="20dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/customersStatusText"
-        android:text="Status"
-        android:textStyle="normal"
-        android:textColor="@color/colorOrange"
-        android:layout_below="@+id/customersDateText"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/customersStatusStatus"
-        android:text="Late"
-        android:layout_toRightOf="@+id/customersIdNoText"
-        android:textStyle="normal"
-        android:textColor="@color/colorOrange"
         android:layout_marginLeft="152dp"
-        android:layout_below="@+id/customersDateDate"
-        android:layout_marginTop="20dp"/>
-
-    <!--    <TextView-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_below="@id/customersStatusStatus"-->
-    <!--        android:text="Testing"-->
-    <!--        android:id="@+id/tet_one" />-->
-
-    <!--    <TextView-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_below="@id/customersStatusStatus"-->
-    <!--        android:text="Testing Two"-->
-    <!--        android:id="@+id/test_two"-->
-    <!--        android:layout_marginLeft="100dp"-->
-    <!--        android:layout_toRightOf="@id/tet_one"/>-->
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@+id/customersIdNoText"
+        android:text="2019-10-18"
+        android:textColor="@color/colorOrange"
+        android:textStyle="normal" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
-        android:layout_below="@+id/customersStatusStatus"
-        android:textColor="@color/colorWhite"
-        android:background="@color/colorOrange"
+        android:layout_below="@+id/customersDateDate"
         android:layout_margin="20dp"
+        android:background="@color/colorOrange"
         android:padding="8dp"
-        android:text="ban customer"/>
-
+        android:text="ban customer"
+        android:textColor="@color/colorWhite"
+        android:textSize="16dp" />
 </RelativeLayout>

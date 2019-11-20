@@ -25,6 +25,12 @@ public class VerifyActivity extends AppCompatActivity {
 
 //        String s = mCode.getText().toString();
 
+        mSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+            }
+        });
         verifyCode();
 
 

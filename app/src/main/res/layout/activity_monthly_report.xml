@@ -6,11 +6,16 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".MonthlyReportActivity">
+<<<<<<< HEAD
+=======
+
+>>>>>>> 466f8e7ac58a7023c0737b54a3285875154a07c3
     <TextView
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Monthly Report"
+
         android:textColor="@color/colorBlack"
         android:textSize="30sp"
         android:textStyle="bold" />
@@ -19,6 +24,7 @@
         android:layout_height="3dp"
         android:layout_marginBottom="32dp"
         android:background="@color/colorPrimary" />
+
     <TextView
         android:id="@+id/txtMonth"
         android:layout_width="match_parent"
@@ -28,12 +34,14 @@
         android:textColor="@color/colorBlack"
         android:textSize="24sp"
         android:textStyle="bold" />
+
     <TextView
         android:id="@+id/textView10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Number of Lamps rented"
         android:textSize="20sp" />
+
     <TextView
         android:id="@+id/textView11"
         android:layout_width="match_parent"
@@ -42,12 +50,14 @@
         android:text="32 Lamps"
         android:textColor="@color/colorBlack"
         android:textSize="24sp" />
+
     <TextView
         android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Number of Phones Charged"
         android:textSize="20sp" />
+
     <TextView
         android:id="@+id/textView13"
         android:layout_width="match_parent"
@@ -56,11 +66,8 @@
         android:text="52 Phones"
         android:textColor="@color/colorBlack"
         android:textSize="24sp" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Late Lamps"
-        android:textSize="20sp" />
+
+
     <TextView
         android:id="@+id/textView15"
         android:layout_width="match_parent"
@@ -69,12 +76,15 @@
         android:text="8 Lamps"
         android:textColor="@color/colorBlack"
         android:textSize="24sp" />
+
     <TextView
         android:id="@+id/textView18"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Revenue Raised"
         android:textSize="20sp" />
+
+
     <TextView
         android:id="@+id/textView19"
         android:layout_width="match_parent"
@@ -82,4 +92,5 @@
         android:text="Ksh. 1,500.00"
         android:textColor="@color/colorBlack"
         android:textSize="24sp" />
+
 </LinearLayout>

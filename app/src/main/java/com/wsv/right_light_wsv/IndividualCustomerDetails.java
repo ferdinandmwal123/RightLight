@@ -2,6 +2,7 @@ package com.wsv.right_light_wsv;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -9,6 +10,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import org.parceler.Parcels;
 
@@ -25,11 +30,12 @@ public class IndividualCustomerDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.individualcustomerdetails);
 
-        mViewPager =findViewById(R.id.viewPager);
+        mViewPager = findViewById(R.id.viewPager);
 
         mCustomers = Parcels.unwrap(getIntent().getParcelableExtra("customers"));
 
-        int startPosition = getIntent().getIntExtra("position",0);
+        int startPosition = getIntent().getIntExtra("position", 0);
+
 
         System.out.println("here is another stupid error in the activity:" + mCustomers);
 
@@ -48,7 +54,11 @@ public class IndividualCustomerDetails extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.editIcon :
+            case R.id.editIcon : {
+                FragmentManager fm = getSupportFragmentManager();
+                EditCustomerFragment  addCustomerFragment = new EditCustomerFragment();
+                addCustomerFragment.show(fm,"Edit customer details");
+            }
                 
         }
         return super.onOptionsItemSelected(item);

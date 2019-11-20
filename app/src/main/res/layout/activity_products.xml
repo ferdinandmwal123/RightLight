@@ -11,6 +11,16 @@
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
+        <TextView
+            android:id="@+id/Rightlight-WSV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="Rightlight-WSV"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
@@ -36,6 +46,6 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:backgroundTint="@color/colorPrimary"
-        android:tint="@color/colorAccent"
+        android:tint="@color/colorWhite"
         app:srcCompat="@android:drawable/ic_input_add" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

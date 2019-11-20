@@ -27,13 +27,14 @@
         android:id="@+id/errorTextView"
         android:text="Here"
         android:layout_centerInParent="true"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
     <TextView
+        android:id="@+id/testCustomerName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/testCustomerName"
-        android:visibility="invisible"/>
+        android:visibility="invisible" />
+
     <ProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
@@ -41,6 +42,7 @@
         android:indeterminateDrawable="@drawable/progressbarcolor"
         android:indeterminateDuration="@android:integer/config_longAnimTime"
         android:layout_centerInParent="true"/>
+
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
