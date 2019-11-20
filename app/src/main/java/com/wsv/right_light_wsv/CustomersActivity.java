@@ -27,7 +27,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 public class CustomersActivity extends AppCompatActivity implements View.OnClickListener{
+
+
     private FloatingActionButton mAddCustomerFloatingBtn;
+    private final String BASE1_URL ="https://rightlight.herokuapp.com/api/";
+
     RecyclerView mRecyclerView;
     TextView errorTextView,testCustomerName;
     ProgressBar mProgressBar;
@@ -35,7 +39,8 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
     public List<Customer> mCustomers;
     CustomerListAdapter adapter;
     CustomerNamesResponse customerNamesResponse;
-    private final String BASE1_URL ="https://rightlight.herokuapp.com/api/";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

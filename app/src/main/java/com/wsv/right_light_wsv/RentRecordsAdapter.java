@@ -31,7 +31,7 @@ public class RentRecordsAdapter extends RecyclerView.Adapter<RentRecordsAdapter.
     }
 
     @Override
-    public void onBindViewHolder(CustomViewHolder holder, int position) {
+    public void onBindViewHolder(final CustomViewHolder holder, int position) {
 //        holder.customer.setText(rentRecords.get(position).getCustomer());
         holder.returnDate.setText(rentRecords.get(position).getReturnDate());
         holder.rentDate.setText(rentRecords.get(position).getRentDate());
