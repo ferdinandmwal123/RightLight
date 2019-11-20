@@ -25,7 +25,6 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
     @NonNull
     @Override
     public CustomerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-//        System.out.println("Our customers are" + mCustomers.get(1));
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.customerlistitem,parent,false);
         return new CustomerViewHolder(itemView);
     }
@@ -41,7 +40,7 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
                 mContext.startActivity(intent);
             }
         });
-//        holder.customerNameTextView.setText(mCustomers.get(position).getName());
+
     }
     @Override
     public int getItemCount() {
