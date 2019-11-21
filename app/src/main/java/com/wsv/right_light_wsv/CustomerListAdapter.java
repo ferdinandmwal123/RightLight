@@ -35,6 +35,7 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext,IndividualCustomerDetails.class);
+                intent.putExtra("customer_id",customers.get(position).getId());
                 intent.putExtra("position",position);
                 intent.putExtra("customers", Parcels.wrap(mCustomers));
                 mContext.startActivity(intent);
