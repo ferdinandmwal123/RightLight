@@ -30,17 +30,25 @@ public class EditCustomerFragment extends DialogFragment implements View.OnClick
     private EditText mEditCustomerNameField,mEditCustomerPhoneNumberField,mEditCustomerIdNoField;
     private Button mEditCustomerButton;
     private final String BASE_URL ="https://rightlight.herokuapp.com/api/";
+    private Customer myCustomer;
+    private int customer_id;
 
 
 
-    public EditCustomerFragment() {
-        // Required empty public constructor
+    public EditCustomerFragment(int customer_id) {
+        this.customer_id = customer_id;
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        EditCustomerFragment editCustomerFragment  = new EditCustomerFragment(customer_id);
+
+
+
+        editCustomerFragment.myCustomer =myCustomer;
 
         View itemView = inflater.inflate(R.layout.fragment_edit_customer, container, false);
 
@@ -74,23 +82,49 @@ public class EditCustomerFragment extends DialogFragment implements View.OnClick
 
         CustomerNamesResponse customerNamesResponse = retrofit.create(CustomerNamesResponse.class);
 
-        Customer customer = new Customer();
 
-        Call<List<Customer>> call = customerNamesResponse.updateCustomerDetails(customer.getId(),newName,newPhoneNumber,seller,newIdNo);
+
+        Call<List<Customer>> call = customerNamesResponse.updateCustomerDetails(customer_id,newName,newPhoneNumber,seller,newIdNo);
+
+        System.out.println("New call for update" + call);
 
         call.enqueue(new Callback<List<Customer>>() {
             @Override
             public void onResponse(Call<List<Customer>> call, Response<List<Customer>> response) {
                 if (response.isSuccessful()){
-                    Toast.makeText(getContext(), response.body().toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(),"On success",Toast.LENGTH_SHORT).show();
+                }else {
+
                 }
             }
 
             @Override
             public void onFailure(Call<List<Customer>> call, Throwable t) {
 
+
             }
         });
+
+
+//
+//        call.enqueue(new Callback<List<Customer>>() {
+//            @Override
+//            public void onResponse(Call<List<Customer>> call, Response<List<Customer>> response) {
+//                if (response.isSuccessful()){
+//                    System.out.println("New Call" + call);
+//                    Toast.makeText(getContext(), response.body().toString(), Toast.LENGTH_SHORT).show();
+//                    dismiss();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<Customer>> call, Throwable t) {
+//
+//                Toast.makeText(getContext(),"On failure",Toast.LENGTH_SHORT).show();
+//                dismiss();
+//
+//            }
+//        });
 
     }
 }
