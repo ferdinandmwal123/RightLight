@@ -27,7 +27,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 public class CustomersActivity extends AppCompatActivity implements View.OnClickListener{
+
+
     private FloatingActionButton mAddCustomerFloatingBtn;
+    private final String BASE1_URL ="https://rightlight.herokuapp.com/api/";
+
     RecyclerView mRecyclerView;
     TextView errorTextView,testCustomerName;
     ProgressBar mProgressBar;
@@ -35,7 +39,8 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
     public List<Customer> mCustomers;
     CustomerListAdapter adapter;
     CustomerNamesResponse customerNamesResponse;
-    private final String BASE1_URL ="https://rightlight.herokuapp.com/api/";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +65,7 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
                 .build();
         customerNamesResponse = retrofit.create(CustomerNamesResponse.class);
         Call<List<Customer>> call = customerNamesResponse.getCustomerNames();
-        Log.i("Here",call.toString());
+
         call.enqueue(new Callback<List<Customer>>() {
             @Override
             public void onResponse(Call<List<Customer>> call, Response<List<Customer>> response) {
@@ -83,13 +88,16 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
                     mRefreshLayout.setRefreshing(false);
                     hideProgressBar();
                 }else{
+
+                    showUnsuccessfulMessage();
                     hideProgressBar();
-                    showFailureMessage();
                 }
             }
             @Override
             public void onFailure(Call<List<Customer>> call, Throwable t) {
                 errorTextView.setText(t.getMessage());
+                hideProgressBar();
+                showFailureMessage();
             }
         });
     }
@@ -125,6 +133,10 @@ public class CustomersActivity extends AppCompatActivity implements View.OnClick
     }
     public void showFailureMessage(){
         errorTextView.setText("Something wen't wrong.Please check your internet connection");
+        errorTextView.setVisibility(View.VISIBLE);
+    }
+    public void showUnsuccessfulMessage(){
+        errorTextView.setText("Something went wrong. Please try again");
         errorTextView.setVisibility(View.VISIBLE);
     }
 }

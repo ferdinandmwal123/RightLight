@@ -56,8 +56,9 @@ public class IndividualCustomerDetails extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.editIcon : {
                 FragmentManager fm = getSupportFragmentManager();
-                EditCustomerFragment  addCustomerFragment = new EditCustomerFragment();
-                addCustomerFragment.show(fm,"Edit customer details");
+
+                EditCustomerFragment  addCustomerFragment = new EditCustomerFragment(getIntent().getIntExtra("customer_id",0));
+>>                addCustomerFragment.show(fm,"Edit customer details");
             }
                 
         }

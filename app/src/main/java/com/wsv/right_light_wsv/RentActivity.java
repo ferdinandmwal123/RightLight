@@ -77,7 +77,7 @@ public class RentActivity extends AppCompatActivity implements View.OnClickListe
             String returnDate = return_date.getText().toString();
             int prod_cost = Integer.parseInt(cost.getText().toString());
 
-            ApiRentResponse apiRentResponse = new ApiRentResponse();
+            final ApiRentResponse apiRentResponse = new ApiRentResponse();
             apiRentResponse.setCustomer(customer);
             apiRentResponse.setProduct(product);
             apiRentResponse.setReturnDate(returnDate);

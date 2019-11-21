@@ -8,8 +8,11 @@ public class Product {
     private boolean rented;
     private boolean available;
     private boolean damaged;
+    private int id;
 
-    public Product(String product_category, String product_id, String product_type, int seller) {
+
+
+    public Product(String product_category, String product_id, String product_type, int seller, int id) {
         this.product_category = product_category;
         this.product_id = product_id;
         this.product_type = product_type;
@@ -17,6 +20,7 @@ public class Product {
         this.available = true;
         this.damaged = false;
         this.seller = seller;
+        this.id =id;
     }
 
     public Product() {
@@ -77,5 +81,13 @@ public class Product {
 
     public void setDamaged(boolean damaged) {
         this.damaged = damaged;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
