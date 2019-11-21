@@ -66,9 +66,17 @@ public class IndividualCustomerDetailFragment extends Fragment {
     }
 
     public void getLastRentRecord(List<ApiRentResponse> customerRentRecordHistory){
-        int lastRecord =customerRentRecordHistory.size() -1;
-        String lastDate = customerRentRecordHistory.get(lastRecord).getRentDate();
-        mCustomerLastRentalDate.setText(lastDate);
+        int lastRecord =0 ;
+        if (customerRentRecordHistory.size() > 0 ){
+            lastRecord  = customerRentRecordHistory.size() -1;
+            String lastDate = customerRentRecordHistory.get(lastRecord).getRentDate();
+            mCustomerLastRentalDate.setText(lastDate);
+        }else if (customerRentRecordHistory.size() == 0){
+            String noRecords="No record for this customer";
+            mCustomerLastRentalDate.setText(noRecords);
+        }
+
+
     }
 
     public void getCountOfLateReturns(List<ApiRentResponse> customerCountOfLateReturn){
