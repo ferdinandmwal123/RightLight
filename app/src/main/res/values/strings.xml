@@ -4,13 +4,12 @@
 
     <string-array name="categories">
         <item>Lamp</item>
-        <item>Mobile Charging</item>
     </string-array>
 
     <string-array name="lampTypes">
         <item>Boom</item>
         <item>Pico</item>
-        <item>Ciro</item>
+        <item>Pro 200</item>
     </string-array>
 
     <string name="title_activity_products">ProductsActivity</string>
