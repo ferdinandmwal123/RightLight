@@ -39,14 +39,16 @@
                 android:layout_height="wrap_content"
                 android:text="Product ID" />
 
-            <EditText
-                android:id="@+id/etProducts"
+            <Spinner
+                android:id="@+id/productSpinner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="32dp"
-                android:ems="10"
-                android:inputType="textPersonName" />
+                android:layout_height="wrap_content" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="32dp"
+                android:background="@color/colorGrey" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -71,12 +73,13 @@
 
                         android:orientation="horizontal">
 
-                        <EditText
-                            android:id="@+id/etCustomerName"
+                        <AutoCompleteTextView
+                            android:id="@+id/autoCustomer"
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
                             android:ems="10"
-                            android:inputType="textPersonName" />
+                            android:completionThreshold="1"
+                            />
 
                         <Button
                             android:id="@+id/btnAddCustomer"
@@ -114,8 +117,9 @@
 
                     <CalendarView
                         android:id="@+id/calendarView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="311dp" />
+                        android:layout_marginBottom="0sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -128,6 +132,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:enabled="false"
                             android:inputType="textPersonName" />
 
                     </LinearLayout>
@@ -146,43 +151,21 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:paddingRight="8dp">
-
-                    <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:text="Cost per day" />
-
-                    <EditText
-                        android:id="@+id/etCost"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:inputType="number" />
-
-                </LinearLayout>
-
-                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:paddingLeft="8dp">
+                    android:paddingRight="8dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Total Cost" />
 
-                    <TextView
-                        android:id="@+id/txtTotalCost"
+                    <EditText
+                        android:id="@+id/etCost"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="60.00"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="24dp"
-                        android:textStyle="bold" />
+                        android:layout_height="wrap_content"
+                        android:inputType="number" />
 
                 </LinearLayout>
 

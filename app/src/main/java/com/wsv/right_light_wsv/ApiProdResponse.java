@@ -5,6 +5,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class ApiProdResponse {
 
+    @SerializedName("id")
+    @Expose
+    private int id;
     @SerializedName("product_category")
     @Expose
     private String productCategory;
@@ -53,6 +56,11 @@ public class ApiProdResponse {
         this.damaged = damaged;
         this.productId = productId;
     }
+
+    public int getId() {
+        return id;
+    }
+
 
     public String getProductCategory() {
         return productCategory;

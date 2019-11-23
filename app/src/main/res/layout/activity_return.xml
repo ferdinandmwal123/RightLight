@@ -35,13 +35,17 @@
             android:layout_height="wrap_content"
             android:text="Product ID" />
 
-        <EditText
-            android:id="@+id/etProductId"
+        <Spinner
+            android:id="@+id/productSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+        />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
             android:layout_marginBottom="32dp"
-            android:ems="10"
-            android:inputType="textPersonName" />
+            android:background="@color/colorGrey" />
 
 
         <RadioGroup
