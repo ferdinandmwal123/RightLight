@@ -1,6 +1,7 @@
 package com.wsv.right_light_wsv;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -58,37 +59,6 @@ public class AllProductsFragment extends Fragment {
             }
         });
 
-
-
-
-
-
-
-/*        Button details = view.findViewById(R.id.btnRentRecordDetails);
-        details.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), ProductDetailsActivity.class));
-
-
-            }
-        });
-        Button rent = view.findViewById(R.id.btnRent);
-        rent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), RentActivity.class));
-
-
-            }
-        });*/
-
-
-
-
-
-
-
         return view;
     }
 
@@ -98,8 +68,24 @@ public class AllProductsFragment extends Fragment {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
-    }
 
+        adapter.setOnItemClickListener(new ProductListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                getProductDetails(position, productList);
+            }
+        });
+    }
+    public void getProductDetails(int position, List<ApiProdResponse> productList){
+
+        Intent intent = new Intent(getActivity(),ProductDetailsActivity.class);
+        intent.putExtra("product_id", productList.get(position).getId());
+        intent.putExtra("product_name",productList.get(position).getProductType()+" "+productList.get(position).getProductCategory()+" - "+productList.get(position).getProductId());
+        startActivity(intent);
+
+
+
+    }
 
 
 }

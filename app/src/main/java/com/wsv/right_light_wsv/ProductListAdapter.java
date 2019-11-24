@@ -17,6 +17,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
     private List<ApiProdResponse> productList;
     private Context context;
+    private OnItemClickListener mListener;
 
     public ProductListAdapter(Context context, List<ApiProdResponse> productList) {
         this.context = context;
@@ -33,15 +34,6 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     @Override
     public void onBindViewHolder(CustomViewHolder holder, int position) {
         holder.product_name.setText(productList.get(position).getProductType() + " - " + productList.get(position).getProductId());
-        holder.details.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-
-                    Intent intent = new Intent(context, ProductDetailsActivity.class);
-                    intent.putExtra("product_name", productList.get(position).getProductType()+" "+ productList.get(position).getProductCategory()+ " - " + productList.get(position).getProductId());
-                    context.startActivity(intent);
-
-            }
-        });
 
         holder.rent.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -76,7 +68,27 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             details = mView.findViewById(R.id.btnProductDetails);
             parentLayout = mView.findViewById(R.id.parent_layout);
             rent = mView.findViewById(R.id.btnRent);
+
+            details.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(mListener != null){
+                        int position = getAdapterPosition();
+                        if(position!= RecyclerView.NO_POSITION){
+                            mListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 
+
+    public interface  OnItemClickListener{
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        mListener = listener;
+    }
 }

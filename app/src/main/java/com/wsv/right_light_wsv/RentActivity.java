@@ -189,7 +189,7 @@ public class RentActivity extends AppCompatActivity implements View.OnClickListe
         Calendar calendar = Calendar.getInstance();
         String strDate = mdformat.format(calendar.getTime());
         System.out.println(strDate);
-        return strDate;
+        return strDate.trim();
     }
 
     public List<Integer> getAvailableProductIds(List<ApiProdResponse> availableProducts){

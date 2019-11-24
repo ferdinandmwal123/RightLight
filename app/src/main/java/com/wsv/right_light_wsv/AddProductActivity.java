@@ -39,10 +39,7 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
     ProgressDialog progressDialog;
     private ArrayAdapter categoryAdapter;
     private ArrayAdapter typeAdapter;
-    String product_category = "Lamp";
-    String product_type = "Boom";
     int seller = 1;
-    String product_id = "1";
     private ApiProdResponse apiProdResponse;
     private ApiService mAPIService;
     private ProgressDialog mProgressDialog;
@@ -90,7 +87,7 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
     }
 
     public void addProduct(String category, String type, int seller, String id) {
-        ApiProdResponse apiProdResponse = new ApiProdResponse(category,type,seller,"test",false,false,false,id);
+        ApiProdResponse apiProdResponse = new ApiProdResponse(category,type,seller,"test",false,true,false,id);
         mAPIService.addProduct(apiProdResponse).enqueue(new Callback<ApiProdResponse>() {
             @Override
             public void onResponse(Call<ApiProdResponse> call, Response<ApiProdResponse> response) {

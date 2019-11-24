@@ -29,8 +29,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
     private RentRecordsAdapter adapter;
     ProgressDialog progressDialog;
     ApiService service;
-   /* Intent intent = getIntent();
-    private String mProductName=getIntent().getStringExtra("product_name");*/
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +43,14 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
         mMarkAsDamaged = findViewById(R.id.btnMarkAsDamaged);
         mMarkAsDamaged.setOnClickListener(this);
         mDetails = findViewById(R.id.btnRentRecordDetails);
+        String mProductName=getIntent().getStringExtra("product_name");
 
+        txtProductsName.setText(mProductName);
 
+        int productId = getIntent().getIntExtra("product_id",1);
 
         service = RetrofitClient.getClient().create(ApiService.class);
-        Call<List<ApiRentResponse>> call = service.getProductRentRecord(1);
+        Call<List<ApiRentResponse>> call = service.getProductRentRecord(productId);
 
         progressDialog = new ProgressDialog(ProductDetailsActivity.this);
         progressDialog.setMessage("Loading Products Details....");
