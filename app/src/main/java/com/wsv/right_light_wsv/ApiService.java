@@ -15,6 +15,12 @@ public interface ApiService {
     @GET("/api/customer/")
     Call<List<ApiCustomerResponse>> getCustomersList();
 
+    @PATCH("/api/product/{id}/")
+    Call<ApiProdResponse> setRented(@Path("id") int id, @Body ApiProdResponse apiProdResponse);
+
+    @PATCH("/api/product/{id}/")
+    Call<ApiProdResponse> setReturned(@Path("id") int id, @Body ApiProdResponse apiProdResponse);
+
     @POST("/api/rent_record/")
     Call<ApiRentResponse> rentProduct(@Body ApiRentResponse apiRentResponse );
 
@@ -24,9 +30,9 @@ public interface ApiService {
     @GET("/api/rent_record/")
     Call<List<ApiRentResponse>> getCustomerRentRecord(@Query("customer") int customer_id);
 
-
     @POST("/api/product/")
     Call<ApiProdResponse> addProduct(@Body ApiProdResponse apiProdResponse);
+
 
     @GET("/api/rent_record/")
     Call<List<ApiRentResponse>> getCustomerRentRecord(@Query("customer") int customer_id);

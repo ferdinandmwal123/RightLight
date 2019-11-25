@@ -23,6 +23,13 @@ public class ApiRentResponse {
     @SerializedName("return_date")
     @Expose
     private String returnDate;
+    @SerializedName("cost")
+    @Expose
+    private Integer cost;
+    @SerializedName("damaged")
+    @Expose
+    private Boolean damaged;
+
 
     public Integer getProduct() {
         return product;
@@ -70,6 +77,22 @@ public class ApiRentResponse {
 
     public void setReturnDate(String returnDate) {
         this.returnDate = returnDate;
+    }
+
+    public Integer getCost() {
+        return cost;
+    }
+
+    public void setCost(Integer cost) {
+        this.cost = cost;
+    }
+
+    public Boolean getDamaged() {
+        return damaged;
+    }
+
+    public void setDamaged(Boolean damaged) {
+        this.damaged = damaged;
     }
 
 }

@@ -70,18 +70,22 @@ public class RentActivity extends AppCompatActivity implements View.OnClickListe
             EditText product_id = findViewById(R.id.etProducts);
             EditText return_date = findViewById(R.id.etReturnDate);
             EditText customer_id = findViewById(R.id.etCustomerName);
+            EditText cost = findViewById(R.id.etCustomerName);
 
             int product = Integer.parseInt(product_id.getText().toString());
             int customer = Integer.parseInt(customer_id.getText().toString());
             String returnDate = return_date.getText().toString();
+            int prod_cost = Integer.parseInt(cost.getText().toString());
 
             final ApiRentResponse apiRentResponse = new ApiRentResponse();
             apiRentResponse.setCustomer(customer);
             apiRentResponse.setProduct(product);
             apiRentResponse.setReturnDate(returnDate);
+            apiRentResponse.setDamaged(false);
             apiRentResponse.setReturned(false);
             apiRentResponse.setLate(false);
-            apiRentResponse.setRentDate("2019-11-18");
+            apiRentResponse.setRentDate("2019-11-21");
+            apiRentResponse.setCost(prod_cost);
 
             AlertDialog.Builder builder1 = new AlertDialog.Builder(RentActivity.this);
             builder1.setTitle("Confirm Details");
@@ -92,7 +96,7 @@ public class RentActivity extends AppCompatActivity implements View.OnClickListe
                     "CONFIRM",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            rentProduct(apiRentResponse);
+                            rentProduct(apiRentResponse,product);
 
                             mProgressDialog = new ProgressDialog(RentActivity.this);
                             mProgressDialog.setMessage("Recording Details....");
@@ -123,22 +127,40 @@ public class RentActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    public void rentProduct(ApiRentResponse apiRentResponse) {
+    public void rentProduct(ApiRentResponse apiRentResponse, int product_id) {
+
+        ApiProdResponse apiProdResponse = new ApiProdResponse();
+        apiProdResponse.setRented(true);
+        apiProdResponse.setAvailable(false);
 
         mAPIService.rentProduct(apiRentResponse).enqueue(new Callback<ApiRentResponse>() {
             @Override
             public void onResponse(Call<ApiRentResponse> call, Response<ApiRentResponse> response) {
 
                 if (response.isSuccessful()) {
+                    mAPIService.setRented(product_id,apiProdResponse).enqueue(new Callback<ApiProdResponse>() {
+                        @Override
+                        public void onResponse(Call<ApiProdResponse> call, Response<ApiProdResponse> response) {
+                            mProgressDialog.dismiss();
+                        }
+
+                        @Override
+                        public void onFailure(Call<ApiProdResponse> call, Throwable t) {
+
+                        }
+                    });
                     Toast.makeText(RentActivity.this, "Added", Toast.LENGTH_LONG);
-                    mProgressDialog.dismiss();
+
 
                     Dialog dialog = new Dialog(RentActivity.this);
                     dialog.setCancelable(true);
                     dialog.setContentView(R.layout.alert_dialog);
-                    dialog.getWindow().setLayout(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-
+                    dialog.getWindow().setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                     dialog.show();
+
+                    Intent intent = new Intent(RentActivity.this,HomeActivity.class);
+                    startActivity(intent);
+
                 }
             }
 

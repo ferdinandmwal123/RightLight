@@ -29,10 +29,13 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
     private RentRecordsAdapter adapter;
     ProgressDialog progressDialog;
     ApiService service;
+   /* Intent intent = getIntent();
+    private String mProductName=getIntent().getStringExtra("product_name");*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_product_details);
         mRentOut = findViewById(R.id.btnRentOut);
         mRentOut.setOnClickListener(this);
@@ -41,8 +44,6 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
         mMarkAsDamaged = findViewById(R.id.btnMarkAsDamaged);
         mMarkAsDamaged.setOnClickListener(this);
         mDetails = findViewById(R.id.btnRentRecordDetails);
-
-
 
 
 

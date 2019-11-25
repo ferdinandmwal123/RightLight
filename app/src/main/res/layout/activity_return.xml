@@ -36,7 +36,7 @@
             android:text="Product ID" />
 
         <EditText
-            android:id="@+id/etProducts"
+            android:id="@+id/etProductId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
