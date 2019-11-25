@@ -38,22 +38,19 @@ public class RentRecordsAdapter extends RecyclerView.Adapter<RentRecordsAdapter.
     public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.card_product_rent_record, parent, false);
-
-
-
         return new CustomViewHolder(view);
     }
 
-    public void getCustomers(List<ApiCustomerResponse> customers){
+    public void getCustomers(List<ApiCustomerResponse> customers) {
 
-        for(ApiCustomerResponse customer:customers)
-        {
-            customerNames.put(customer.getId(),customer.getName());
+        for (ApiCustomerResponse customer : customers) {
+            customerNames.put(customer.getId(), customer.getName());
         }
 
     }
 
     @Override
+
     public void onBindViewHolder(CustomViewHolder holder, int position) {
      /*   mAPIService = ApiUtils.getAPIService();
         mAPIService.getCustomersList().enqueue(new Callback<List<ApiCustomerResponse>>() {
@@ -77,43 +74,34 @@ public class RentRecordsAdapter extends RecyclerView.Adapter<RentRecordsAdapter.
         holder.customer.setText(Integer.toString(rentRecords.get(position).getCustomer()));
         holder.returnDate.setText(rentRecords.get(position).getReturnDate());
         holder.rentDate.setText(rentRecords.get(position).getRentDate());
-        holder.parentLayout.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                if (v == holder.details) {
 
-                    Intent intent = new Intent(context, ProductDetailsActivity.class);
-                    context.startActivity(intent);
-                }
 
-            }
-        });
 
     }
 
-
-    @Override
-    public int getItemCount() {
-        return rentRecords.size();
-    }
-
-    class CustomViewHolder extends RecyclerView.ViewHolder {
-
-        public final View mView;
-
-        TextView customer,rentDate,returnDate;
-        Button details;
-        LinearLayout parentLayout;
-
-        CustomViewHolder(View itemView) {
-            super(itemView);
-            mView = itemView;
-
-            rentDate = mView.findViewById(R.id.txtRentDate);
-            returnDate = mView.findViewById(R.id.txtReturnDate);
-
-            customer = mView.findViewById(R.id.txtCustomerName);
-            parentLayout = mView.findViewById(R.id.parent_layout);
+        @Override
+        public int getItemCount() {
+            return rentRecords.size();
         }
+        class CustomViewHolder extends RecyclerView.ViewHolder {
+
+            public final View mView;
+
+            TextView customer, rentDate, returnDate;
+            Button details;
+            LinearLayout parentLayout;
+
+            CustomViewHolder(View itemView) {
+                super(itemView);
+                mView = itemView;
+
+                rentDate = mView.findViewById(R.id.txtRentDate);
+                returnDate = mView.findViewById(R.id.txtReturnDate);
+
+                customer = mView.findViewById(R.id.txtCustomerName);
+                parentLayout = mView.findViewById(R.id.parent_layout);
+            }
+        }
+
     }
 
-}

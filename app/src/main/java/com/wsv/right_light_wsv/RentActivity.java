@@ -135,7 +135,7 @@ public class RentActivity extends AppCompatActivity implements View.OnClickListe
 
             getRentDays(returnDate);
 
-            ApiRentResponse apiRentResponse = new ApiRentResponse();
+            final ApiRentResponse apiRentResponse = new ApiRentResponse();
             apiRentResponse.setCustomer(customer);
             apiRentResponse.setProduct(product);
             apiRentResponse.setReturnDate(returnDate);

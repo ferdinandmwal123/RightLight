@@ -33,8 +33,16 @@ public interface ApiService {
     @POST("/api/product/")
     Call<ApiProdResponse> addProduct(@Body ApiProdResponse apiProdResponse);
 
-    @PATCH("/api/rent_record/15")
-    Call<ApiRentResponse> returnProduct(@Body ApiRentResponse apiRentResponse );
+
+
+    @GET("/api/rent_record/")
+    Call<List<ApiRentResponse>> getCustomerLateReturns(@Query("customer") int customer_id,@Query ("late") boolean late);
+
+    @GET("/api/rent_record/")
+    Call<List<ApiRentResponse>> getCustomerRentals(@Query("customer") int customer_id);
+
+    @PATCH("/api/product/{id}")
+    Call<ApiRentResponse> returnProduct(@Path ("id") int id,@Body ApiRentResponse apiRentResponse );
 
     @GET("/api/product/")
     Call<List<ApiProdResponse>> getAllProducts();
