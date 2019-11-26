@@ -106,6 +106,7 @@ public class EditCustomerFragment extends DialogFragment implements View.OnClick
                     Toast.makeText(getContext(), response.body().toString(), Toast.LENGTH_SHORT).show();
 
                     Toast.makeText(getContext(),"On success",Toast.LENGTH_SHORT).show();
+                    dismiss();
                 }else {
 
                 }
@@ -113,6 +114,7 @@ public class EditCustomerFragment extends DialogFragment implements View.OnClick
 
             @Override
             public void onFailure(Call<List<Customer>> call, Throwable t) {
+                dismiss();
 
             }
         });
