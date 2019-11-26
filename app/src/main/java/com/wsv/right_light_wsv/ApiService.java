@@ -35,10 +35,6 @@ public interface ApiService {
 
 
     @GET("/api/rent_record/")
-    Call<List<ApiRentResponse>> getCustomerRentRecord(@Query("customer") int customer_id);
-
-
-    @GET("/api/rent_record/")
     Call<List<ApiRentResponse>> getCustomerLateReturns(@Query("customer") int customer_id,@Query ("late") boolean late);
 
     @GET("/api/rent_record/")
