@@ -6,10 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.PopupWindow;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 
@@ -24,6 +22,7 @@ public class ProductsActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         setContentView(R.layout.activity_products);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         final ViewPager viewPager = findViewById(R.id.view_pager);
@@ -32,6 +31,7 @@ public class ProductsActivity extends AppCompatActivity implements View.OnClickL
         tabs.setupWithViewPager(viewPager);
         FloatingActionButton fab = findViewById(R.id.fab);
 
+        ((AppCompatActivity) ProductsActivity.this).getSupportActionBar().hide();
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,14 +45,6 @@ public class ProductsActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
 
-        switch (v.getId()) {
-
-            case R.id.btnProductDetails:
-
-                startActivity(new Intent(ProductsActivity.this, ProductDetailsActivity.class));
-
-                break;
-        }
 
     }
 }

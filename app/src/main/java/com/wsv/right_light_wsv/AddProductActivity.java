@@ -1,5 +1,6 @@
 package com.wsv.right_light_wsv;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -37,12 +39,13 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
     ProgressDialog progressDialog;
     private ArrayAdapter categoryAdapter;
     private ArrayAdapter typeAdapter;
-    List<String> product_category = new ArrayList<String>();
+    String product_category = "Lamp";
     String product_type = "Boom";
     int seller = 1;
     String product_id = "1";
     private ApiProdResponse apiProdResponse;
     private ApiService mAPIService;
+    private ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +55,7 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
         category = findViewById(R.id.categoryDropdown);
         productID = findViewById(R.id.etProductId);
         addProductButton = findViewById(R.id.btnAdd);
-        product_category.add("Lamp");
+
         // add items to category dropdown list
         category.setAdapter(categoryAdapter);
         categoryAdapter = ArrayAdapter.createFromResource(this, R.array.categories, R.layout.spinner);
@@ -76,22 +79,31 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
 
         if (v == addProductButton) {
 
-            addProduct();
+            addProduct(category.getSelectedItem().toString(),type.getSelectedItem().toString(),seller,productID.getText().toString());
+
+            mProgressDialog = new ProgressDialog(AddProductActivity.this);
+            mProgressDialog.setMessage("Recording Details....");
+            mProgressDialog.show();
 
         }
 
     }
 
-    public void addProduct() {
-        ApiProdResponse apiProdResponse = new ApiProdResponse(product_category,product_type,seller,"test",false,false,false,"B1");
+    public void addProduct(String category, String type, int seller, String id) {
+        ApiProdResponse apiProdResponse = new ApiProdResponse(category,type,seller,"test",false,false,false,id);
         mAPIService.addProduct(apiProdResponse).enqueue(new Callback<ApiProdResponse>() {
             @Override
             public void onResponse(Call<ApiProdResponse> call, Response<ApiProdResponse> response) {
 
                 if (response.isSuccessful()) {
-                    response.code();
-                    Log.i(TAG, "post submitted to API." + response.body().toString());
-                    Toast.makeText(AddProductActivity.this, "Addeddddddd", LENGTH_LONG);
+                    mProgressDialog.dismiss();
+
+                    Dialog dialog = new Dialog(AddProductActivity.this);
+                    dialog.setCancelable(true);
+                    dialog.setContentView(R.layout.alert_dialog);
+                    dialog.getWindow().setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+                    dialog.show();
                 }
             }
 

@@ -43,7 +43,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/total_records"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
@@ -86,7 +86,7 @@
 
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/revenue_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ksh. 1,500.00"

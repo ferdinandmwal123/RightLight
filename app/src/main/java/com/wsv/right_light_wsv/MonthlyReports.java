@@ -1,5 +1,5 @@
 
-package com.wsv.right_light_wsv;
+        package com.wsv.right_light_wsv;
 
 import java.io.Serializable;
 import com.google.gson.annotations.Expose;
@@ -8,6 +8,9 @@ import com.google.gson.annotations.SerializedName;
 public class MonthlyReports implements Serializable
 {
 
+    @SerializedName("id")
+    @Expose
+    private Integer id;
     @SerializedName("product")
     @Expose
     private Integer product;
@@ -26,32 +29,52 @@ public class MonthlyReports implements Serializable
     @SerializedName("return_date")
     @Expose
     private String returnDate;
-    private final static long serialVersionUID = 3722615226446425018L;
+    @SerializedName("cost")
+    @Expose
+    private Integer cost;
+    @SerializedName("damaged")
+    @Expose
+    private Boolean damaged;
+    private final static long serialVersionUID = 1810484073884611487L;
 
     /**
      * No args constructor for use in serialization
-     * 
+     *
      */
     public MonthlyReports() {
     }
 
     /**
-     * 
+     *
      * @param product
      * @param returnDate
+     * @param cost
      * @param rentDate
      * @param late
+     * @param damaged
+     * @param id
      * @param returned
      * @param customer
      */
-    public MonthlyReports(Integer product, Integer customer, String rentDate, Boolean returned, Boolean late, String returnDate) {
+    public MonthlyReports(Integer id, Integer product, Integer customer, String rentDate, Boolean returned, Boolean late, String returnDate, Integer cost, Boolean damaged) {
         super();
+        this.id = id;
         this.product = product;
         this.customer = customer;
         this.rentDate = rentDate;
         this.returned = returned;
         this.late = late;
         this.returnDate = returnDate;
+        this.cost = cost;
+        this.damaged = damaged;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getProduct() {
@@ -100,6 +123,22 @@ public class MonthlyReports implements Serializable
 
     public void setReturnDate(String returnDate) {
         this.returnDate = returnDate;
+    }
+
+    public Integer getCost() {
+        return cost;
+    }
+
+    public void setCost(Integer cost) {
+        this.cost = cost;
+    }
+
+    public Boolean getDamaged() {
+        return damaged;
+    }
+
+    public void setDamaged(Boolean damaged) {
+        this.damaged = damaged;
     }
 
 }

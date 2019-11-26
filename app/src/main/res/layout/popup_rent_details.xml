@@ -29,7 +29,7 @@
         android:text="Rented by" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/total_records"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Robin Kariuki"
@@ -71,7 +71,7 @@
         android:text="Amount due" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/revenue_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ksh. 60.00"

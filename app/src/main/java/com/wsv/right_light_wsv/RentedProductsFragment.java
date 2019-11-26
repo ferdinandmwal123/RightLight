@@ -38,7 +38,7 @@ public class RentedProductsFragment extends Fragment {
 
 
         progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Fetching products from database.....");
+        progressDialog.setMessage("Fetching products from database....");
         progressDialog.show();
 
         service = RetrofitClient.getClient().create(ApiService.class);
@@ -47,6 +47,7 @@ public class RentedProductsFragment extends Fragment {
         call.enqueue(new Callback<List<ApiProdResponse>>() {
             @Override
             public void onResponse(Call<List<ApiProdResponse>> call, Response<List<ApiProdResponse>> response) {
+
                 progressDialog.dismiss();
                 generateDataList(response.body());
             }
@@ -60,26 +61,6 @@ public class RentedProductsFragment extends Fragment {
 
             }
         });
-
- /*      Button details = view.findViewById(R.id.btnRentRecordDetails);
-        Button returnProduct = view.findViewById(R.id.btnReturnProduct);
-        returnProduct.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(),ReturnActivity.class));
-            }
-        });
-
-         // details.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                View popupView = LayoutInflater.from(getApplicationContext(getActivity())).inflate(R.layout.popup_add_product, null);
-                mPopupWindow = new PopupWindow(popupView, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
-                mPopupWindow.setFocusable(true);
-                mPopupWindow.update();
-            }
-        });*/
-
     return view;
     }
 

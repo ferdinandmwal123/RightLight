@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.List;
+
+
 
 public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.CustomViewHolder> {
 
@@ -33,14 +33,22 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     @Override
     public void onBindViewHolder(CustomViewHolder holder, int position) {
         holder.product_name.setText(productList.get(position).getProductType() + " - " + productList.get(position).getProductId());
-        holder.parentLayout.setOnClickListener(new View.OnClickListener() {
+        holder.details.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (v == holder.details) {
 
                     Intent intent = new Intent(context, ProductDetailsActivity.class);
-                    intent.putExtra("productName", productList.get(position).getProductType() + " - " + productList.get(position).getProductId());
+                    intent.putExtra("product_name", productList.get(position).getProductType()+" "+ productList.get(position).getProductCategory()+ " - " + productList.get(position).getProductId());
                     context.startActivity(intent);
-                }
+
+            }
+        });
+
+        holder.rent.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                Intent intent = new Intent(context, RentActivity.class);
+                intent.putExtra("product_name", productList.get(position).getProductType()+" "+ productList.get(position).getProductCategory()+ " - " + productList.get(position).getProductId());
+                context.startActivity(intent);
 
             }
         });
@@ -67,6 +75,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             product_name = mView.findViewById(R.id.txtProductName);
             details = mView.findViewById(R.id.btnProductDetails);
             parentLayout = mView.findViewById(R.id.parent_layout);
+            rent = mView.findViewById(R.id.btnRent);
         }
     }
 

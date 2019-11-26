@@ -4,6 +4,7 @@
         android:layout_width="match_parent"
     android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+    android:theme="@style/AppThemeNoActionBar"
         android:padding="10dp"
     android:orientation="vertical"
     tools:context=".HomeActivity">
@@ -30,11 +31,13 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:weightSum="100"
             android:orientation="vertical">
 
             <LinearLayout

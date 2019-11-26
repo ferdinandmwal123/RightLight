@@ -3,13 +3,11 @@ package com.wsv.right_light_wsv;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
 public class ApiProdResponse {
 
     @SerializedName("product_category")
     @Expose
-    private List<String> productCategory = null;
+    private String productCategory;
     @SerializedName("product_type")
     @Expose
     private String productType;
@@ -32,6 +30,8 @@ public class ApiProdResponse {
     @Expose
     private String productId;
 
+    public ApiProdResponse() {
+    }
 
     public ApiProdResponse(String productType, Integer seller, String name, Boolean rented, Boolean available, Boolean damaged, String productId) {
         this.productType = productType;
@@ -43,7 +43,7 @@ public class ApiProdResponse {
         this.productId = productId;
     }
 
-    public ApiProdResponse(List<String> productCategory, String productType, Integer seller, String name, Boolean rented, Boolean available, Boolean damaged, String productId) {
+    public ApiProdResponse(String productCategory, String productType, Integer seller, String name, Boolean rented, Boolean available, Boolean damaged, String productId) {
         this.productCategory = productCategory;
         this.productType = productType;
         this.seller = seller;
@@ -54,11 +54,11 @@ public class ApiProdResponse {
         this.productId = productId;
     }
 
-    public List<String> getProductCategory() {
+    public String getProductCategory() {
         return productCategory;
     }
 
-    public void setProductCategory(List<String> productCategory) {
+    public void setProductCategory(String productCategory) {
         this.productCategory = productCategory;
     }
 

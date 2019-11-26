@@ -18,7 +18,9 @@
         <activity
             android:name=".IndividualCustomerDetails"
             android:label="Customer details"
-            android:theme="@style/CustomerListTheme" /> <!-- Remove hardcoded JohnDoe -->
+            android:theme="@style/CustomerListTheme"
+            android:parentActivityName=".CustomersActivity"
+            android:screenOrientation="portrait"/> <!-- Remove hardcoded JohnDoe -->
         <activity android:name=".RentActivity" />
         <activity
             android:name=".CustomersActivity"
