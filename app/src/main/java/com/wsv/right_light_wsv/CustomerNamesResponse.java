@@ -32,14 +32,13 @@ public interface CustomerNamesResponse {
 
     //updating the user details
     @FormUrlEncoded
-    @PUT("customer/{id}")
-    Call<List<Customer>> updateCustomerDetails(
-            @Field("id") int id,
+//    @PUT("customer/{id}")
+//    Call<List<Customer>> updateCustomerDetails(
+//            @Field("id") int id,
 
     @PATCH("customer/{id}/")
     Call<List<Customer>> updateCustomerDetails(
             @Path("id") int id,
-
             @Field("Name") String Name,
             @Field("phone_number") String phone_number,
             @Field("seller") int seller,
