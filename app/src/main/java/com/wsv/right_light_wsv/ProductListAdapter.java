@@ -33,13 +33,25 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
     @Override
     public void onBindViewHolder(CustomViewHolder holder, int position) {
+
+        holder.number.setText(Integer.toString(position+1));
         holder.product_name.setText(productList.get(position).getProductType() + " - " + productList.get(position).getProductId());
 
         holder.rent.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
+
+
+
                 Intent intent = new Intent(context, RentActivity.class);
                 intent.putExtra("product_name", productList.get(position).getProductType()+" "+ productList.get(position).getProductCategory()+ " - " + productList.get(position).getProductId());
+                intent.putExtra("availability", productList.get(position).getAvailable());
+
+
+
+
+
+
                 context.startActivity(intent);
 
             }
@@ -56,7 +68,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
         public final View mView;
 
-        TextView product_name;
+        TextView product_name,number;
         Button details, rent;
         LinearLayout parentLayout;
 
@@ -64,6 +76,8 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             super(itemView);
             mView = itemView;
 
+
+            number=mView.findViewById(R.id.txtListNumber);
             product_name = mView.findViewById(R.id.txtProductName);
             details = mView.findViewById(R.id.btnProductDetails);
             parentLayout = mView.findViewById(R.id.parent_layout);

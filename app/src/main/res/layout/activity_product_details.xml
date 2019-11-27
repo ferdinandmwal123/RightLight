@@ -18,7 +18,7 @@
             android:layout_marginBottom="8dp"
             android:text="@string/product_details"
             android:textColor="@android:color/black"
-            android:textSize="32sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <View
@@ -41,18 +41,18 @@
                 android:layout_weight="1"
                 android:text="@string/boom_lamp_b1"
                 android:textColor="@android:color/black"
-                android:textSize="22sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/availabilityBadge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:background="@drawable/product_list_card"
-                android:layout_gravity="center"
-
-                android:text="@string/available"
+                android:textAllCaps="true"
+                android:text="available"
                 android:textAlignment="center"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -64,7 +64,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingLeft="16dp"
-            android:paddingRight="16dp">
+            android:paddingRight="16dp"
+            android:layout_marginBottom="32dp">
 
             <Button
                 android:id="@+id/btnRentOut"
@@ -72,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/curved_border"
-                android:padding="16dp"
+                android:minHeight="40dp"
                 android:text="rent out"
                 android:textColor="@color/colorWhite" />
 
@@ -83,6 +84,7 @@
                 android:layout_marginBottom="8dp"
                 android:background="@drawable/curved_border"
                 android:text="@string/mark_as_damaged"
+                android:minHeight="40dp"
                 android:textColor="@color/colorWhite" />
         </LinearLayout>
 
@@ -93,7 +95,7 @@
             android:layout_marginBottom="8dp"
             android:text="@string/rent_records"
             android:textColor="@android:color/black"
-            android:textSize="30sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <View

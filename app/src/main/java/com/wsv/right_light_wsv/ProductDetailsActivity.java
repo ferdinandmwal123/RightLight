@@ -24,7 +24,7 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 public class ProductDetailsActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button mRentOut,mMarkAsDamaged,mDetails;
-    private TextView txtProductsName;
+    private TextView txtProductsName,availabilityBadge;
     private RecyclerView recyclerView;
     private RentRecordsAdapter adapter;
     ProgressDialog progressDialog;
@@ -39,15 +39,30 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
         mRentOut = findViewById(R.id.btnRentOut);
         mRentOut.setOnClickListener(this);
         txtProductsName = findViewById(R.id.txtProductName);
+        availabilityBadge = findViewById(R.id.availabilityBadge);
+
 
         mMarkAsDamaged = findViewById(R.id.btnMarkAsDamaged);
         mMarkAsDamaged.setOnClickListener(this);
         mDetails = findViewById(R.id.btnRentRecordDetails);
+
         String mProductName=getIntent().getStringExtra("product_name");
 
         txtProductsName.setText(mProductName);
 
+        boolean availability = getIntent().getExtras().getBoolean("availability");
+        System.out.println(availability);
         int productId = getIntent().getIntExtra("product_id",1);
+
+        String available;
+        if (availability==true) {
+            available="available";
+            availabilityBadge.setText(available);
+        }else if(!availability){
+            available="not available";
+            availabilityBadge.setText(available);
+        }
+
 
         service = RetrofitClient.getClient().create(ApiService.class);
         Call<List<ApiRentResponse>> call = service.getProductRentRecord(productId);

@@ -1,22 +1,16 @@
 package com.wsv.right_light_wsv;
 
-import android.app.Dialog;
+
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -38,6 +32,11 @@ public class RentRecordsAdapter extends RecyclerView.Adapter<RentRecordsAdapter.
     public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.card_product_rent_record, parent, false);
+
+        mAPIService = ApiUtils.getAPIService();
+
+
+
         return new CustomViewHolder(view);
     }
 
@@ -52,7 +51,8 @@ public class RentRecordsAdapter extends RecyclerView.Adapter<RentRecordsAdapter.
     @Override
 
     public void onBindViewHolder(CustomViewHolder holder, int position) {
-     /*   mAPIService = ApiUtils.getAPIService();
+
+
         mAPIService.getCustomersList().enqueue(new Callback<List<ApiCustomerResponse>>() {
             @Override
             public void onResponse(Call<List<ApiCustomerResponse>> call, Response<List<ApiCustomerResponse>> response) {
@@ -60,6 +60,9 @@ public class RentRecordsAdapter extends RecyclerView.Adapter<RentRecordsAdapter.
                 getCustomers(customers);
                 System.out.println(customerNames);
 
+                int customerId = rentRecords.get(position).getCustomer();
+                String customerName = customerNames.get(customerId);
+                holder.customer.setText(customerName);
             }
 
             @Override
@@ -68,10 +71,9 @@ public class RentRecordsAdapter extends RecyclerView.Adapter<RentRecordsAdapter.
             }
         });
 
-        int customerId = rentRecords.get(position).getCustomer();
-        String customerName = customerNames.get(customerId);*/
 
-        holder.customer.setText(Integer.toString(rentRecords.get(position).getCustomer()));
+
+        //holder.customer.setText(Integer.toString(rentRecords.get(position).getCustomer()));
         holder.returnDate.setText(rentRecords.get(position).getReturnDate());
         holder.rentDate.setText(rentRecords.get(position).getRentDate());
 
