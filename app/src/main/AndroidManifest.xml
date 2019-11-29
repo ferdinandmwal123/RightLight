@@ -38,16 +38,18 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".ProductsActivity" />
         <activity android:name=".ProductDetailsActivity" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity
-            android:name=".SplashScreenActivity"
-            android:theme="@style/SplashScreenTheme">
+        <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".LoginActivity" />
+        <activity
+            android:name=".SplashScreenActivity"
+            android:theme="@style/SplashScreenTheme">
+
         </activity>
         <activity android:name=".VerifyActivity" />
     </application>

@@ -6,10 +6,7 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".MonthlyReportActivity">
-<<<<<<< HEAD
-=======
 
->>>>>>> 466f8e7ac58a7023c0737b54a3285875154a07c3
     <TextView
         android:id="@+id/textView8"
         android:layout_width="match_parent"

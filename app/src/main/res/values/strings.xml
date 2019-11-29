@@ -44,5 +44,12 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="home">Home</string>
+    <string name="rent_out_product">Rent Out Product</string>
+    <string name="return_product">Return Product</string>
+    <string name="products">Products</string>
+    <string name="monthly_reports">Monthly reports</string>
+    <string name="settings">Settings</string>
+
+
 
 </resources>
