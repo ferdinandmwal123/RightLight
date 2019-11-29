@@ -58,7 +58,7 @@ public class IndividualCustomerDetails extends AppCompatActivity {
                 FragmentManager fm = getSupportFragmentManager();
 
                 EditCustomerFragment  addCustomerFragment = new EditCustomerFragment(getIntent().getIntExtra("customer_id",0));
->>                addCustomerFragment.show(fm,"Edit customer details");
+               addCustomerFragment.show(fm,"Edit customer details");
             }
                 
         }
