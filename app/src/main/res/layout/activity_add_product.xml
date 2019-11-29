@@ -17,8 +17,7 @@
             android:id="@+id/txtAddAProduct"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:text="Add a Product"
+            android:text="@string/add_a_product"
             android:textColor="@android:color/black"
             android:textSize="32sp"
             android:textStyle="bold" />
@@ -33,8 +32,8 @@
             android:id="@+id/txtCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Category"
-            android:textSize="12dp" />
+            android:text="@string/category"
+            android:textSize="12sp" />
 
         <Spinner
             android:id="@+id/categoryDropdown"
@@ -48,8 +47,8 @@
             android:id="@+id/txtType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Type"
-            android:textSize="12dp" />
+            android:text="@string/type"
+            android:textSize="12sp" />
 
         <Spinner
             android:id="@+id/typeDropdown"
@@ -62,8 +61,8 @@
             android:id="@+id/txtProductId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Product ID"
-            android:textSize="12dp" />
+            android:text="@string/product_id"
+            android:textSize="12sp" />
 
         <EditText
             android:id="@+id/etProductId"
@@ -71,10 +70,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="50dp"
             android:ems="10"
-            android:hint="Assign ID "
+            android:hint="@string/assign_id"
             android:inputType="textPersonName"
             android:textColor="@android:color/black"
-            android:textSize="24dp" />
+            android:textSize="24sp"
+           />
 
         <Button
             android:id="@+id/btnAdd"
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/curved_border"
             android:onClick="onClick"
-            android:text="Add product"
+            android:text="@string/add_product"
             android:textColor="@color/colorWhite" />
 
     </LinearLayout>
