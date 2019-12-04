@@ -30,6 +30,11 @@ public class EditCustomerFragment extends DialogFragment implements View.OnClick
     private EditText mEditCustomerNameField,mEditCustomerPhoneNumberField,mEditCustomerIdNoField;
     private Button mEditCustomerButton;
     private final String BASE_URL ="https://rightlight.herokuapp.com/api/";
+
+
+
+    public EditCustomerFragment() {
+        // Required empty public constructor
     private Customer myCustomer;
     private int customer_id;
 
@@ -37,12 +42,14 @@ public class EditCustomerFragment extends DialogFragment implements View.OnClick
 
     public EditCustomerFragment(int customer_id) {
         this.customer_id = customer_id;
+
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
 
         EditCustomerFragment editCustomerFragment  = new EditCustomerFragment(customer_id);
 
@@ -84,14 +91,18 @@ public class EditCustomerFragment extends DialogFragment implements View.OnClick
 
 
 
+
         Call<List<Customer>> call = customerNamesResponse.updateCustomerDetails(customer_id,newName,newPhoneNumber,seller,newIdNo);
 
         System.out.println("New call for update" + call);
+
 
         call.enqueue(new Callback<List<Customer>>() {
             @Override
             public void onResponse(Call<List<Customer>> call, Response<List<Customer>> response) {
                 if (response.isSuccessful()){
+                    Toast.makeText(getContext(), response.body().toString(), Toast.LENGTH_SHORT).show();
+
                     Toast.makeText(getContext(),"On success",Toast.LENGTH_SHORT).show();
                 }else {
 
@@ -100,6 +111,9 @@ public class EditCustomerFragment extends DialogFragment implements View.OnClick
 
             @Override
             public void onFailure(Call<List<Customer>> call, Throwable t) {
+
+            }
+        });
 
 
             }
