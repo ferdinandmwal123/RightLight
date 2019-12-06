@@ -5,6 +5,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class ApiCustomerResponse {
 
+    @SerializedName("id")
+    @Expose
+    private Integer id;
     @SerializedName("Name")
     @Expose
     private String name;
@@ -17,6 +20,10 @@ public class ApiCustomerResponse {
     @SerializedName("customer_id")
     @Expose
     private String customerId;
+
+    public Integer getId() {
+        return id;
+    }
 
     public String getName() {
         return name;
