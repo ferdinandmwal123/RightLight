@@ -1,40 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:layout_marginTop="16dp"
-    android:orientation="vertical"
-    android:padding="10dp"
-    android:theme="@style/AppThemeNoActionBar"
-    tools:context=".HomeActivity">
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="150dp"
-        android:layout_height="44dp"
-        android:drawableStart="@drawable/ic_home_black_24dp"
-        android:drawableLeft="@drawable/ic_home_black_24dp"
-        android:paddingStart="16dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:text="@string/home"
-        android:textColor="@color/colorBlack"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="32dp" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:layout_marginBottom="32dp"
-        android:background="@color/colorPrimary" />
-
-    <ScrollView
-        android:layout_width="wrap_content"
-=======
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -44,9 +8,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
-    android:layout_height="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:orientation="vertical"
         android:padding="10dp"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -54,11 +18,14 @@
             android:id="@+id/textView2"
             android:layout_width="150dp"
             android:layout_height="44dp"
+            android:drawableStart="@drawable/ic_home_black_24dp"
             android:drawableLeft="@drawable/ic_home_black_24dp"
-            android:paddingLeft="16px"
-            android:text="Home"
+            android:paddingStart="16dp"
+            android:paddingLeft="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/home"
             android:textColor="@color/colorBlack"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:textStyle="bold"
 
             />
@@ -69,164 +36,129 @@
             android:layout_marginBottom="32dp"
             android:background="@color/colorPrimary" />
 
-    <ScrollView
-        android:layout_width="match_parent"
->>>>>>> de30e58e68e5596e1a168156727f8c733738a037
-        android:layout_height="match_parent">
-
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:weightSum="100">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:weightSum="2"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:weightSum="100">
 
-                <Button
-                    android:layout_width="0dp"
-                    android:id="@+id/rentBtn"
-<<<<<<< HEAD
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:layout_width="@dimen/home_button_width"
-                    android:layout_height="@dimen/home_button_height"
-=======
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:minHeight="180dp"
-                    android:padding="24dp"
-                    app:layout_constraintTop_toTopOf="parent"
->>>>>>> de30e58e68e5596e1a168156727f8c733738a037
-                    android:background="@drawable/curved_border"
-                    android:text="@string/rent_out_product"
-                    android:textColor="@color/colorWhite"
-                    android:textStyle="bold" />
+                    android:layout_marginBottom="12dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:id="@+id/returnBtn"
-<<<<<<< HEAD
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:layout_width="@dimen/home_button_width"
-                    android:layout_height="@dimen/home_button_height"
-                    android:layout_marginStart="12dp"
-=======
-                    android:layout_weight="1"
-                    android:minHeight="180dp"
-                    android:padding="24dp"
-                    app:layout_constraintLeft_toRightOf="@id/rentBtn"
->>>>>>> de30e58e68e5596e1a168156727f8c733738a037
-                    android:layout_marginLeft="12dp"
-                    android:background="@drawable/curved_border"
-                    android:text="@string/return_product"
-                    android:textColor="@color/colorWhite"
-                    android:textStyle="bold" />
+                    <Button
+                        android:id="@+id/rentBtn"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/curved_border"
+                        android:minHeight="180dp"
+                        android:padding="24dp"
+                        android:text="@string/rent_out_product"
+                        android:textColor="@color/colorWhite"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/returnBtn"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/curved_border"
+                        android:minHeight="180dp"
+                        android:padding="24dp"
+                        android:text="@string/rent_out_product"
+                        android:textColor="@color/colorWhite"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toRightOf="@id/rentBtn" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <Button
+                        android:id="@+id/productsBtn"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/curved_border"
+                        android:minHeight="180dp"
+                        android:padding="24dp"
+                        android:text="@string/products"
+                        android:textColor="@color/colorWhite"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/customerBtn"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/curved_border"
+                        android:minHeight="180dp"
+                        android:padding="24dp"
+                        android:text="@string/customers"
+                        android:textColor="@color/colorWhite"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <Button
+                        android:id="@+id/monthlyReportBtn"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/curved_border"
+                        android:minHeight="180dp"
+                        android:padding="24dp"
+                        android:text="@string/monthly_reports"
+                        android:textColor="@color/colorWhite"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnSettings"
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/curved_border"
+                        android:minHeight="180dp"
+                        android:padding="24dp"
+                        android:text="@string/settings"
+                        android:textColor="@color/colorWhite"
+                        android:textStyle="bold" />
+                </LinearLayout>
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:weightSum="2"
-                android:orientation="horizontal">
-
-                <Button
-
-                    android:id="@+id/productsBtn"
-<<<<<<< HEAD
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:layout_width="@dimen/home_button_width"
-                    android:layout_height="@dimen/home_button_height"
-=======
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:minHeight="180dp"
-                    android:padding="24dp"
->>>>>>> de30e58e68e5596e1a168156727f8c733738a037
-                    android:background="@drawable/curved_border"
-                    android:text="@string/products"
-                    android:textColor="@color/colorWhite"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/customerBtn"
-<<<<<<< HEAD
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:layout_width="@dimen/home_button_width"
-                    android:layout_height="@dimen/home_button_height"
-                    android:layout_marginStart="12dp"
-=======
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:minHeight="180dp"
-                    android:padding="24dp"
->>>>>>> de30e58e68e5596e1a168156727f8c733738a037
-                    android:layout_marginLeft="12dp"
-                    android:background="@drawable/curved_border"
-                    android:text="@string/customers"
-                    android:textColor="@color/colorWhite"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:weightSum="2"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/monthlyReportBtn"
-<<<<<<< HEAD
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:layout_width="@dimen/home_button_width"
-                    android:layout_height="@dimen/home_button_height"
-=======
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:minHeight="180dp"
-                    android:padding="24dp"
->>>>>>> de30e58e68e5596e1a168156727f8c733738a037
-                    android:background="@drawable/curved_border"
-                    android:text="@string/monthly_reports"
-                    android:textColor="@color/colorWhite"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/btnSettings"
-<<<<<<< HEAD
-                    style="?android:attr/buttonBarButtonStyle"
-                    android:layout_width="@dimen/home_button_width"
-                    android:layout_height="@dimen/home_button_height"
-                    android:layout_marginStart="12dp"
-=======
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:minHeight="180dp"
-                    android:padding="24dp"
->>>>>>> de30e58e68e5596e1a168156727f8c733738a037
-                    android:layout_marginLeft="12dp"
-                    android:background="@drawable/curved_border"
-                    android:text="@string/settings"
-                    android:textColor="@color/colorWhite"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+        </ScrollView>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
