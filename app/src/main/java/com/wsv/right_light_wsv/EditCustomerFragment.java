@@ -30,13 +30,15 @@ public class EditCustomerFragment extends DialogFragment implements View.OnClick
     private EditText mEditCustomerNameField,mEditCustomerPhoneNumberField,mEditCustomerIdNoField;
     private Button mEditCustomerButton;
     private final String BASE_URL ="https://rightlight.herokuapp.com/api/";
+    private Customer myCustomer;
+    private int customer_id;
 
 
 
     public EditCustomerFragment() {
         // Required empty public constructor
-    private Customer myCustomer;
-    private int customer_id;
+    }
+
 
 
 
@@ -104,6 +106,7 @@ public class EditCustomerFragment extends DialogFragment implements View.OnClick
                     Toast.makeText(getContext(), response.body().toString(), Toast.LENGTH_SHORT).show();
 
                     Toast.makeText(getContext(),"On success",Toast.LENGTH_SHORT).show();
+                    dismiss();
                 }else {
 
                 }
@@ -111,34 +114,10 @@ public class EditCustomerFragment extends DialogFragment implements View.OnClick
 
             @Override
             public void onFailure(Call<List<Customer>> call, Throwable t) {
+                dismiss();
 
             }
         });
-
-
-            }
-        });
-
-
-//
-//        call.enqueue(new Callback<List<Customer>>() {
-//            @Override
-//            public void onResponse(Call<List<Customer>> call, Response<List<Customer>> response) {
-//                if (response.isSuccessful()){
-//                    System.out.println("New Call" + call);
-//                    Toast.makeText(getContext(), response.body().toString(), Toast.LENGTH_SHORT).show();
-//                    dismiss();
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<Customer>> call, Throwable t) {
-//
-//                Toast.makeText(getContext(),"On failure",Toast.LENGTH_SHORT).show();
-//                dismiss();
-//
-//            }
-//        });
 
     }
 }

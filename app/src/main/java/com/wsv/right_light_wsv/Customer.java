@@ -17,20 +17,20 @@ public class Customer {
 
     @SerializedName("Name")
     @Expose
-    private String name;
+    String name;
     @SerializedName("phone_number")
     @Expose
-    private String phoneNumber;
+    String phoneNumber;
     @SerializedName("seller")
     @Expose
-    private Integer seller;
+    Integer seller;
     @SerializedName("customer_id")
     @Expose
-    private String customerId;
+    String customerId;
     @Nullable
     @SerializedName("id")
     @Expose
-    private int id;
+    int id;
 
 
     /**
