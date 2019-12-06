@@ -16,7 +16,7 @@
             android:layout_marginBottom="8dp"
             android:text="Available Products"
             android:textColor="@android:color/black"
-            android:textSize="32sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <View

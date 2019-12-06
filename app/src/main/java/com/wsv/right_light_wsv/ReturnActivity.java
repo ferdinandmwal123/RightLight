@@ -8,10 +8,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -20,9 +26,11 @@ import retrofit2.Response;
 public class ReturnActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button mReturn;
-    private EditText mProductId;
+    private Spinner mProductId;
     private ApiService service;
     private ProgressDialog mProgressDialog;
+    private List<ApiProdResponse> rentedProducts;
+    private List<Integer> rentedProductIds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +39,21 @@ public class ReturnActivity extends AppCompatActivity implements View.OnClickLis
         service = ApiUtils.getAPIService();
 
 
-        mProductId = findViewById(R.id.etProductId);
+        service.getRentedProducts(true).enqueue(new Callback<List<ApiProdResponse>>() {
+            @Override
+            public void onResponse(Call<List<ApiProdResponse>> call, Response<List<ApiProdResponse>> response) {
+                rentedProducts = response.body();
+                getRentedProductIds(rentedProducts);
+
+            }
+
+            @Override
+            public void onFailure(Call<List<ApiProdResponse>> call, Throwable t) {
+
+            }
+        });
+
+        mProductId = findViewById(R.id.productSpinner);
         mReturn = findViewById(R.id.btnReturn);
         mReturn.setOnClickListener(this);
     }
@@ -44,8 +66,26 @@ public class ReturnActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
+
+    public List<Integer> getRentedProductIds(List<ApiProdResponse> rentedProducts){
+        rentedProductIds = new ArrayList<>();
+        mProductId = findViewById(R.id.productSpinner);
+        for(ApiProdResponse product:rentedProducts)
+        {
+
+            rentedProductIds.add(product.getId());
+        }
+
+        ArrayAdapter<Integer> arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,rentedProductIds);
+        mProductId.setAdapter(arrayAdapter);
+
+        return rentedProductIds;
+
+    }
+
     public void returnProduct() {
 
+        mProductId = findViewById(R.id.productSpinner);
         ApiRentResponse apiRentResponse= new ApiRentResponse();
         apiRentResponse.setDamaged(false);
         apiRentResponse.setLate(false);
@@ -56,10 +96,12 @@ public class ReturnActivity extends AppCompatActivity implements View.OnClickLis
         apiProdResponse.setRented(false);
 
 
+
+
         mProgressDialog = new ProgressDialog(ReturnActivity.this);
         mProgressDialog.setMessage("Recording Details....");
         mProgressDialog.show();
-        service.setReturned(3,apiProdResponse).enqueue(new Callback<ApiProdResponse>() {
+        service.setReturned(Integer.parseInt(mProductId.getSelectedItem().toString()),apiProdResponse).enqueue(new Callback<ApiProdResponse>() {
             @Override
             public void onResponse(Call<ApiProdResponse> call, Response<ApiProdResponse> response) {
                 mProgressDialog.dismiss();

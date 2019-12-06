@@ -30,6 +30,7 @@ public class ProductListAdapterRented extends RecyclerView.Adapter<ProductListAd
 
     @Override
     public void onBindViewHolder(CustomViewHolder holder, int position) {
+        holder.number.setText(Integer.toString(position+1));
         holder.product_name.setText(productList.get(position).getProductType() + " - " + productList.get(position).getProductId());
 
     }
@@ -43,13 +44,13 @@ public class ProductListAdapterRented extends RecyclerView.Adapter<ProductListAd
 
         public final View mView;
 
-        TextView product_name;
+        TextView product_name,number;
         Button details, rent;
 
         CustomViewHolder(View itemView) {
             super(itemView);
             mView = itemView;
-
+            number=mView.findViewById(R.id.txtListNumber);
             product_name = mView.findViewById(R.id.txtProductName);
             details = mView.findViewById(R.id.btnProductDetails);
         }

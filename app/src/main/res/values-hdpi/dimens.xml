@@ -1,0 +1,12 @@
+<resources>
+	<dimen name="home_button_width">224.4dp</dimen>
+	<dimen name="activity_vertical_margin">19.2dp</dimen>
+	<dimen name="nav_header_vertical_spacing">9.6dp</dimen>
+	<dimen name="activity_horizontal_margin">19.2dp</dimen>
+	<dimen name="fab_margin">19.2dp</dimen>
+	<dimen name="nav_header_height">211.2dp</dimen>
+	<dimen name="home_button_height">216dp</dimen>
+	<dimen name="appbar_padding">19.2dp</dimen>
+	<dimen name="appbar_padding_top">9.6dp</dimen>
+	<dimen name="title_height">38.4dp</dimen>
+</resources>

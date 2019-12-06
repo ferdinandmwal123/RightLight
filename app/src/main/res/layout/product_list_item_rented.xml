@@ -1,50 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="16dp"
-    android:layout_weight="1"
-    android:background="@drawable/product_list_card"
-    android:orientation="horizontal"
-    android:padding="16dp">
 
-    <TextView
-        android:id="@+id/txtProductName"
-        android:layout_width="144dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Boom Lamp - B1"
-        android:textColor="@android:color/black"
-        android:textSize="14sp" />
 
-    <TextView
-        android:id="@+id/txtStatus"
-        android:layout_width="40dp"
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/parent_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_weight="1"
-        android:text="OK"
-        android:textAlignment="center"
-        android:textColor="@color/lightGreen"
-        android:textSize="12sp"
-        android:textStyle="bold" />
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        >
 
-    <Button
-        android:id="@+id/btnRentRecordDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_weight="1"
-        android:background="@drawable/curved_border"
-        android:text="details"
-        android:textColor="@color/colorWhite" />
 
-    <Button
-        android:id="@+id/btnReturnProduct"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:background="@drawable/curved_border"
-        android:text="return"
-        android:textColor="@color/colorWhite" />
-</LinearLayout>
+        <TextView
+            android:id="@+id/txtListNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            android:paddingRight="16dp"
+            android:paddingTop="16dp"
+            android:text="1"
+            android:textColor="@android:color/black"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="8dp"
+            android:background="@drawable/product_list_card"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtProductName"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+
+                android:text="Boom Lamp - B1"
+                android:textColor="@android:color/black"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/txtStatus"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center"
+                android:text="OK"
+                android:textAlignment="center"
+                android:textColor="@color/lightGreen"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnRentRecordDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/curved_border"
+                android:onClick="onClick"
+                android:text="details"
+                android:minHeight="32dp"
+                android:minWidth="16dp"
+                android:textSize="12dp"
+
+                android:textColor="@color/colorWhite" />
+
+            <Button
+                android:id="@+id/btnReturnProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="32dp"
+                android:minWidth="16dp"
+                android:textSize="12dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/curved_border"
+                android:text="return"
+                android:textColor="@color/colorWhite" />
+        </LinearLayout>
+    </LinearLayout>
+
+

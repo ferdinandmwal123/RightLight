@@ -13,10 +13,6 @@ import com.google.android.material.tabs.TabLayout;
 
 public class ProductsActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private PopupWindow mPopupWindow;
-    ProgressDialog progressDialog;
-    private Button mAddProduct;
-    private ApiService mAPIService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
